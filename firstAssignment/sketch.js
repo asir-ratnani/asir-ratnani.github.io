@@ -16,11 +16,12 @@ function setup() {
 function draw() {
   drawRect();
   drawEllipse();
+
 }
 
 function drawRect() {
   fill(200,0,0);
-  rect (windowWidth - 50 /2,windowHeight - 100,150, 25);
+  rect (windowWidth/4,windowHeight/2,150, 25);
 }
 
 function drawEllipse() {
