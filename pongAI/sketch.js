@@ -1,16 +1,16 @@
-// Interactive Scene Assignment
+// State Variables Assignment
 // Asir Ratnani
-// September 24, 2018
+// October 15, 2018
 //
 // Extra for Experts:
-// Use of sound in the background for more of a game aesthetic.
-// As the ball hits the paddle, it changes colour to a random colour.
-// There was also a use of a button in order to reset the game once the ball hits the ground.
-// A game over is included once the ball hits the ground.
-//
+// Use of an AI bot to compete against in Pong.
+// 
 // Credits:
+// SPECIAL SHOUTOUT TO TRAVIS AHERN FOR HELPING ME SET-UP THE AI BOT!!
+//
 // Music by Eric Matyas
 // www.soundimage.org
+//
 
 
 //List of variables used in this game
@@ -30,17 +30,21 @@ let backgroundMusic;
 let button_1;
 let speed;
 
+function preload() {
+  backgroundMusic = loadSound("assets/Game-Menu_Looping.mp3");
+}
+
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
   resetButtonCall();
-
+  backgroundMusic.loop();
   //  Set the variables for the ball
   speed = 5;
   xBall = width / 2;
   yBall = 5;
-  dxBall = speed;
-  dyBall = speed;
+  dxBall = random(direction) * speed;
+  dyBall = random(direction) * speed;
   direction = [-1, 1];
 
   // Set the variables for the paddle
@@ -71,7 +75,7 @@ function draw() {
 
   textSize(20);
   fill(66,244,244);
-  text("P2 Score", width - 50, 100);
+  text("P2 Score", width - 100, 100);
   fill(0,255,0);
   text(counter_2, width - 50, 125);
   
@@ -141,7 +145,7 @@ function ball() {
       colour_1 = random(255);
       colour_2 = random(255);
       colour_3 = random(255);
-      dxBall += 1;
+      dxBall -= 1;
       dyBall += 1;
     }
   }
