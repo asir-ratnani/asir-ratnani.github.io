@@ -26,11 +26,41 @@ let direction;
 
 let colour_1, colour_2, colour_3;
 let counter_1, counter_2;
+let backgroundMusic;
 let button_1;
 let speed;
 
 
-function setupPong() {
+function setup() {
+  createCanvas(windowWidth, windowHeight);
+  resetButtonCall();
+
+  //  Set the variables for the ball
+  speed = 5;
+  xBall = width / 2;
+  yBall = 5;
+  dxBall = speed;
+  dyBall = speed;
+  direction = [-1, 1];
+
+  // Set the variables for the paddle
+  paddleWidth = 25;
+  paddleHeight = 100;
+  dxPaddle = 25;
+  xPaddle_1 = 75;
+  yPaddle_1 = height / 2;
+  xPaddle_2 = width - 75;
+  yPaddle_2 = height / 2; 
+
+  // Setting miscellaneous variables
+  colour_1 = random(255);
+  colour_2 = random(255);
+  colour_3 = random(255);
+  counter_1 = 0;
+  counter_2 = 0;
+}
+
+function draw() {
   background(0);
   //Displays all the text on the screen.
   textSize(20);
@@ -50,8 +80,14 @@ function setupPong() {
   textSize(20);
   text("By: Asir Ratnani", windowWidth / 2, 125);
   // Calls the functions in order to draw and move the paddle and ball.
-}
+ 
+  paddle_1();
+  paddle_2();
+  ball();
+  paddleMove();
 
+
+}
 
 
 function ball() {
