@@ -30,7 +30,7 @@ function setup() {
   textFont(titleScreenFont);
   textSize(40);
   fill(0);
-  text("GAMES", 110, 300);
+  text("GAMES", 110, 150);
   textSize(22);
 
   //Single Pong Setup
