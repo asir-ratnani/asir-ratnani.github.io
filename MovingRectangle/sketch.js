@@ -17,7 +17,7 @@ function setup() {
 }
 
 function draw() {
-  background(0, 100, 100);
+  background(0, 300, 500);
 
 
   //move rectangle
