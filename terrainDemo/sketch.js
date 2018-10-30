@@ -26,6 +26,11 @@ function draw() {
   displayRects();
 }
 
+
+function keyPressed() {
+  generateRectangles(); 
+}
+
 function displayRects() {
   for (let i=0; i < rects.length; i++) {
     rect(rects[i].x,rects[i].y,rects[i].width,rects[i].height)
@@ -33,6 +38,7 @@ function displayRects() {
 }
 
 function generateRectangles(){
+  rects = [];
   for (let i = 0; i < numberOfRects; i++){
     let rectHeight = noise(time) * height;
     let someRect = {
