@@ -7,5 +7,7 @@
 			"path": "2arrayDemo"
 		}
 	],
-	"settings": {}
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "2dArrayAssignment"
+	}
 }
