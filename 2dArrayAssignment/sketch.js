@@ -8,6 +8,8 @@
 let widths = [425,200,150,100,100,125];
 let rows = 15;
 let cols = 6;
+let cities = [["Calgary", "Air Canada", "ACA 1125", "5:15 AM", "5:21 AM", "On Time!"],
+             ["Toronto", "Air Canada", "ACA 1125", "5:25 AM", "5:32 AM", "On Time!"]];
 let grid;
 let cellSize;
 
@@ -16,13 +18,16 @@ let cellSize;
 // API Key = "fc2a7d607c39780ddb797b27a76572a79d82ff12"
 // fxmlUrl = "https://flightxml.flightaware.com/json/FlightXML3/"
 
+// let url = 'https://flightxml.flightaware.com/json/FlightXML3/AirportBoards?airport_code=CYXE'
+
+
 function preload() {
-  grid = loadStrings("assets/departureGrid.txt");
 }
 
 
 function setup() {
   createCanvas(1100, 750);
+  // loadJSON(url, gotData)
   cellSize = height / rows;
 
   // grid = create2dArray(cols, rows);
@@ -38,11 +43,18 @@ function draw() {
 function displayGrid() {
   for (let y = 0; y < rows; y++ ) {
     for (let x = 0; x < cols; x++) {
+      
       if(grid[y][x] === "C") {
         fill(0);
+        textSize(32);
+        textAlign(CENTER, BASELINE);
+        text(cities[x], widths[x] / 2, height / rows - 10);
       }
-      else if (grid[y][x] === "M") {
-        fill(0,255,0);
+      if (grid[y][x] === "M") {
+        fill(0);
+        textSize(32);
+        textAlign(CENTER);
+        text(cities[x], widths[x] / 4, height / rows + 60);
       }
 
       else if (grid[y][x] === "T") {
@@ -69,6 +81,7 @@ function displayGrid() {
         startingX += widths[i];
         i++;
       }
+      noFill();
       rect (startingX, y*cellSize, widths[x], height / rows );
   }
 }
