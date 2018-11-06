@@ -1,6 +1,6 @@
 // 2-D Array Assignment - Departures/Arrivals Board
 // Asir Ratnani
-// October 26, 2018
+// November 13, 2018
 //
 // Extra for Experts:
 // 
@@ -8,8 +8,6 @@
 let widths = [425,200,150,100,100,125];
 let rows = 15;
 let cols = 6;
-let cities = [["Calgary", "Air Canada", "ACA 1125", "5:15 AM", "5:21 AM", "On Time!"],
-             ["Toronto", "Air Canada", "ACA 1125", "5:25 AM", "5:32 AM", "On Time!"]];
 let grid;
 let cellSize;
 
@@ -21,23 +19,22 @@ let cellSize;
 // let url = 'https://flightxml.flightaware.com/json/FlightXML3/AirportBoards?airport_code=CYXE'
 
 
-function preload() {
-}
-
 
 function setup() {
+  let cities = loadJSON("assets/AirportBoards.json");
   createCanvas(1100, 750);
   // loadJSON(url, gotData)
   cellSize = height / rows;
 
-  // grid = create2dArray(cols, rows);
+  grid = create2dArray(cols, rows);
 
-  cleanUpTheGrid();
+  // cleanUpTheGrid();
 }
 
 function draw() {
   background(125);
   displayGrid();
+  console.log(cities)
 }
 
 function displayGrid() {
@@ -103,7 +100,7 @@ function create2dArray(cols,rows) {
 }
 
 function cleanUpTheGrid() {
-  for (let i=0; i<grid.length; i++) {
+  for (let i=0; i < grid.length; i++) {
     grid[i] = grid[i].split("");  //turns it into a 2d array
   }
 }
