@@ -10,6 +10,13 @@ let rows = 15;
 let cols = 6;
 let grid;
 let cellSize;
+let info;
+let departures, arrivals, scheduled, enroute;
+let typeOfFlight;
+
+// WebAuthentication
+// WebAuthentication
+// httpGet("http://flightxml.flightaware.com/json/FlightXML3/WeatherConditions?airport_code=KJFK&weather_date=0&howMany=1&offset=0");
 
 //let url = http://flightxml.flightaware.com/json/FlightXML3/METHODNAME
 // Username = "ARatnani"
@@ -18,23 +25,52 @@ let cellSize;
 
 // let url = 'https://flightxml.flightaware.com/json/FlightXML3/AirportBoards?airport_code=CYXE'
 
+function preload() {
+  info = loadJSON("assets/AirportBoards.json");
 
+}
 
 function setup() {
-  let cities = loadJSON("assets/AirportBoards.json");
   createCanvas(1100, 750);
-  // loadJSON(url, gotData)
   cellSize = height / rows;
-
   grid = create2dArray(cols, rows);
+ 
 
-  // cleanUpTheGrid();
+  departures = info.AirportBoardsResult.departures.flights;
+  // arrivals = info.AirportBoardsResult.arrivals.flights;
+  // scheduled = info.AirportBoardsResult.scheduled.flights;
+  // enroute = info.AirportBoardsResult.enroute.flights;
+
 }
 
 function draw() {
   background(125);
   displayGrid();
-  console.log(cities)
+  displayJSON();
+}
+
+function displayJSON() {
+  
+  for (let j = 0; j < cols; j++) {
+    let x = 10;
+    let y = 45;
+    for (let i =0; i < rows; i++) {
+      if (departures[i].type === "Form_Airline") {
+        // console.log(departures[i].destination.city);
+        fill(255);
+        textSize(32);
+        textFont('Georgia');
+        // textAlign(CENTER, BASELINE);
+        text(departures[i].destination.city, x, y);
+        text(departures[i].airline, width[0] + x, y);
+        text(departures[i].ident, width[1] + x, y);
+        text(departures[i].filed_departure_time.time, width[2] + x, y);
+        text(departures[i].actual_departure_time.time, width[3] + x, y);
+        text(departures[i].status, width[4] + x, y);
+        y += 50; 
+      }
+    }
+  }
 }
 
 function displayGrid() {
@@ -90,7 +126,7 @@ function create2dArray(cols,rows) {
     for (let x = 0; x < cols; x++) {
       if (random(100) < 50) {
         departuresGrid[y].push(0);
-    }
+      }
       else {
         departuresGrid[y].push(1);
       }

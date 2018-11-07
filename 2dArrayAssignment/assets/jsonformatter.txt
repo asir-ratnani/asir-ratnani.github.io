@@ -1,0 +1,1312 @@
+﻿{
+  "AirportBoardsResult": {
+    "airport": "CYXE",
+    "airport_info": {
+      "airport_code": "CYXE",
+      "name": "Saskatoon Int'l",
+      "elevation": 1653,
+      "city": "Saskatoon",
+      "state": "Saskatchewan",
+      "longitude": -106.699722,
+      "latitude": 52.170834,
+      "timezone": ":America/Regina",
+      "country_code": "CA",
+      "wiki_url": "https://en.wikipedia.org/wiki/Saskatoon_John_G._Diefenbaker_International_Airport",
+      "alternate_ident": "YXE"
+    },
+    "departures": {
+      "num_flights": 15,
+      "next_offset": 15,
+      "flights": [
+        {
+          "ident": "WEN3266",
+          "faFlightID": "WEN3266-1541312773-airline-0361",
+          "airline": "WEN",
+          "airline_iata": "WR",
+          "flightnumber": "3266",
+          "tailnumber": "C-FENO",
+          "type": "Form_Airline",
+          "codeshares": "WJA3266",
+          "blocked": false,
+          "diverted": false,
+          "cancelled": false,
+          "origin": {
+            "code": "CYXE",
+            "city": "Saskatoon, Saskatchewan",
+            "alternate_ident": "",
+            "airport_name": "Saskatoon Int'l"
+          },
+          "destination": {
+            "code": "CYWG",
+            "city": "Winnipeg, Manitoba",
+            "alternate_ident": "",
+            "airport_name": "Winnipeg Int'l"
+          },
+          "filed_ete": 4920,
+          "route": "YQV VLR AMBIL2",
+          "filed_altitude": 250,
+          "display_filed_altitude": "25,000 feet",
+          "filed_airspeed_kts": 342,
+          "distance_filed": 479,
+          "filed_departure_time": {
+            "epoch": 1541557200,
+            "tz": "CST",
+            "dow": "Tuesday",
+            "time": "08:20PM",
+            "date": "2018/11/06",
+            "localtime": 1541535600
+          },
+          "estimated_departure_time": {
+            "epoch": 1541559088,
+            "tz": "CST",
+            "dow": "Tuesday",
+            "time": "08:51PM",
+            "date": "2018/11/06",
+            "localtime": 1541537488
+          },
+          "actual_departure_time": {
+            "epoch": 1541559088,
+            "tz": "CST",
+            "dow": "Tuesday",
+            "time": "08:51PM",
+            "date": "2018/11/06",
+            "localtime": 1541537488
+          },
+          "departure_delay": 420,
+          "filed_arrival_time": {
+            "epoch": 1541562120,
+            "tz": "CST",
+            "dow": "Tuesday",
+            "time": "09:42PM",
+            "date": "2018/11/06",
+            "localtime": 1541540520
+          },
+          "estimated_arrival_time": {
+            "epoch": 1541563565,
+            "tz": "CST",
+            "dow": "Tuesday",
+            "time": "10:06PM",
+            "date": "2018/11/06",
+            "localtime": 1541541965
+          },
+          "actual_arrival_time": {
+            "epoch": 1541563565,
+            "tz": "CST",
+            "dow": "Tuesday",
+            "time": "10:06PM",
+            "date": "2018/11/06",
+            "localtime": 1541541965
+          },
+          "arrival_delay": 120,
+          "status": "Arrived / Gate Arrival",
+          "progress_percent": 100,
+          "aircrafttype": "DH8D",
+          "full_aircrafttype": "DH8D",
+          "adhoc": false
+        },
+        {
+          "ident": "CJT590",
+          "faFlightID": "CJT590-1541312773-airline-0080",
+          "airline": "CJT",
+          "airline_iata": "W8",
+          "flightnumber": "590",
+          "tailnumber": "C-FKAJ",
+          "type": "Form_Airline",
+          "blocked": false,
+          "diverted": false,
+          "cancelled": false,
+          "origin": {
+            "code": "CYXE",
+            "city": "Saskatoon, Saskatchewan",
+            "alternate_ident": "",
+            "airport_name": "Saskatoon Int'l"
+          },
+          "destination": {
+            "code": "CYQR",
+            "city": "Regina, Saskatchewan",
+            "alternate_ident": "",
+            "airport_name": "Regina Int'l"
+          },
+          "filed_ete": 1920,
+          "route": "ANTOS ANTOS5",
+          "filed_altitude": 190,
+          "display_filed_altitude": "19,000 feet",
+          "filed_airspeed_kts": 353,
+          "distance_filed": 207,
+          "filed_departure_time": {
+            "epoch": 1541557300,
+            "tz": "CST",
+            "dow": "Tuesday",
+            "time": "08:21PM",
+            "date": "2018/11/06",
+            "localtime": 1541535700
+          },
+          "estimated_departure_time": {
+            "epoch": 1541556720,
+            "tz": "CST",
+            "dow": "Tuesday",
+            "time": "08:12PM",
+            "date": "2018/11/06",
+            "localtime": 1541535120
+          },
+          "actual_departure_time": {
+            "epoch": 1541556761,
+            "tz": "CST",
+            "dow": "Tuesday",
+            "time": "08:12PM",
+            "date": "2018/11/06",
+            "localtime": 1541535161
+          },
+          "departure_delay": -539,
+          "filed_arrival_time": {
+            "epoch": 1541559220,
+            "tz": "CST",
+            "dow": "Tuesday",
+            "time": "08:53PM",
+            "date": "2018/11/06",
+            "localtime": 1541537620
+          },
+          "estimated_arrival_time": {
+            "epoch": 1541558571,
+            "tz": "CST",
+            "dow": "Tuesday",
+            "time": "08:42PM",
+            "date": "2018/11/06",
+            "localtime": 1541536971
+          },
+          "actual_arrival_time": {
+            "epoch": 1541558571,
+            "tz": "CST",
+            "dow": "Tuesday",
+            "time": "08:42PM",
+            "date": "2018/11/06",
+            "localtime": 1541536971
+          },
+          "arrival_delay": -649,
+          "status": "Arrived / Gate Arrival",
+          "progress_percent": 100,
+          "aircrafttype": "B722",
+          "full_aircrafttype": "B722",
+          "adhoc": false
+        },
+        {
+          "ident": "WEN3235",
+          "faFlightID": "WEN3235-1541312773-airline-0317",
+          "airline": "WEN",
+          "airline_iata": "WR",
+          "flightnumber": "3235",
+          "tailnumber": "C-GVWE",
+          "type": "Form_Airline",
+          "codeshares": "WJA3235",
+          "blocked": false,
+          "diverted": false,
+          "cancelled": false,
+          "origin": {
+            "code": "CYXE",
+            "city": "Saskatoon, Saskatchewan",
+            "alternate_ident": "",
+            "airport_name": "Saskatoon Int'l"
+          },
+          "destination": {
+            "code": "CYEG",
+            "city": "Edmonton Capital Region, Alberta",
+            "alternate_ident": "",
+            "airport_name": "Edmonton Int'l"
+          },
+          "filed_ete": 4500,
+          "route": "REFEX J515 CAMRA IGSOX2",
+          "filed_altitude": 240,
+          "display_filed_altitude": "24,000 feet",
+          "filed_airspeed_kts": 354,
+          "distance_filed": 330,
+          "filed_departure_time": {
+            "epoch": 1541550300,
+            "tz": "CST",
+            "dow": "Tuesday",
+            "time": "06:25PM",
+            "date": "2018/11/06",
+            "localtime": 1541528700
+          },
+          "estimated_departure_time": {
+            "epoch": 1541553000,
+            "tz": "CST",
+            "dow": "Tuesday",
+            "time": "07:10PM",
+            "date": "2018/11/06",
+            "localtime": 1541531400
+          },
+          "actual_departure_time": {
+            "epoch": 1541553000,
+            "tz": "CST",
+            "dow": "Tuesday",
+            "time": "07:10PM",
+            "date": "2018/11/06",
+            "localtime": 1541531400
+          },
+          "departure_delay": 1860,
+          "filed_arrival_time": {
+            "epoch": 1541554800,
+            "tz": "MST",
+            "dow": "Tuesday",
+            "time": "06:40PM",
+            "date": "2018/11/06",
+            "localtime": 1541529600
+          },
+          "estimated_arrival_time": {
+            "epoch": 1541556540,
+            "tz": "MST",
+            "dow": "Tuesday",
+            "time": "07:09PM",
+            "date": "2018/11/06",
+            "localtime": 1541531340
+          },
+          "actual_arrival_time": {
+            "epoch": 1541556600,
+            "tz": "MST",
+            "dow": "Tuesday",
+            "time": "07:10PM",
+            "date": "2018/11/06",
+            "localtime": 1541531400
+          },
+          "arrival_delay": 2280,
+          "status": "Arrived / Delayed",
+          "progress_percent": 100,
+          "aircrafttype": "DH8D",
+          "full_aircrafttype": "DH8D",
+          "adhoc": false
+        },
+        {
+          "ident": "WEN3249",
+          "faFlightID": "WEN3249-1541312773-airline-0402",
+          "airline": "WEN",
+          "airline_iata": "WR",
+          "flightnumber": "3249",
+          "tailnumber": "C-GWEG",
+          "type": "Form_Airline",
+          "codeshares": "WJA3249",
+          "blocked": false,
+          "diverted": false,
+          "cancelled": false,
+          "origin": {
+            "code": "CYXE",
+            "city": "Saskatoon, Saskatchewan",
+            "alternate_ident": "",
+            "airport_name": "Saskatoon Int'l"
+          },
+          "destination": {
+            "code": "CYYC",
+            "city": "Calgary, Alberta",
+            "alternate_ident": "",
+            "airport_name": "Calgary Int'l"
+          },
+          "filed_ete": 4380,
+          "route": "OVATA BORIX UDPAV BIRKO BIRKO3",
+          "filed_altitude": 240,
+          "display_filed_altitude": "24,000 feet",
+          "filed_airspeed_kts": 353,
+          "distance_filed": 362,
+          "filed_departure_time": {
+            "epoch": 1541547000,
+            "tz": "CST",
+            "dow": "Tuesday",
+            "time": "05:30PM",
+            "date": "2018/11/06",
+            "localtime": 1541525400
+          },
+          "estimated_departure_time": {
+            "epoch": 1541552305,
+            "tz": "CST",
+            "dow": "Tuesday",
+            "time": "06:58PM",
+            "date": "2018/11/06",
+            "localtime": 1541530705
+          },
+          "actual_departure_time": {
+            "epoch": 1541552305,
+            "tz": "CST",
+            "dow": "Tuesday",
+            "time": "06:58PM",
+            "date": "2018/11/06",
+            "localtime": 1541530705
+          },
+          "departure_delay": 600,
+          "filed_arrival_time": {
+            "epoch": 1541551380,
+            "tz": "MST",
+            "dow": "Tuesday",
+            "time": "05:43PM",
+            "date": "2018/11/06",
+            "localtime": 1541526180
+          },
+          "estimated_arrival_time": {
+            "epoch": 1541556104,
+            "tz": "MST",
+            "dow": "Tuesday",
+            "time": "07:01PM",
+            "date": "2018/11/06",
+            "localtime": 1541530904
+          },
+          "actual_arrival_time": {
+            "epoch": 1541556104,
+            "tz": "MST",
+            "dow": "Tuesday",
+            "time": "07:01PM",
+            "date": "2018/11/06",
+            "localtime": 1541530904
+          },
+          "arrival_delay": 180,
+          "status": "Arrived / Gate Arrival",
+          "progress_percent": 100,
+          "aircrafttype": "DH8D",
+          "full_aircrafttype": "DH8D",
+          "adhoc": false
+        },
+        {
+          "ident": "JZA8575",
+          "atc_ident": "JZA575",
+          "faFlightID": "JZA8575-1541312760-airline-0201",
+          "airline": "JZA",
+          "airline_iata": "QK",
+          "flightnumber": "8575",
+          "tailnumber": "C-FUJZ",
+          "type": "Form_Airline",
+          "blocked": false,
+          "diverted": false,
+          "cancelled": false,
+          "origin": {
+            "code": "CYXE",
+            "city": "Saskatoon, Saskatchewan",
+            "alternate_ident": "",
+            "airport_name": "Saskatoon Int'l"
+          },
+          "destination": {
+            "code": "CYVR",
+            "city": "Vancouver, British Columbia",
+            "alternate_ident": "",
+            "airport_name": "Vancouver Int'l"
+          },
+          "filed_ete": 6300,
+          "route": "OVATA BORIX SPRAE BOOTH CANUC4",
+          "filed_altitude": 360,
+          "display_filed_altitude": "36,000 feet",
+          "filed_airspeed_kts": 449,
+          "distance_filed": 785,
+          "filed_departure_time": {
+            "epoch": 1541550900,
+            "tz": "CST",
+            "dow": "Tuesday",
+            "time": "06:35PM",
+            "date": "2018/11/06",
+            "localtime": 1541529300
+          },
+          "estimated_departure_time": {
+            "epoch": 1541551206,
+            "tz": "CST",
+            "dow": "Tuesday",
+            "time": "06:40PM",
+            "date": "2018/11/06",
+            "localtime": 1541529606
+          },
+          "actual_departure_time": {
+            "epoch": 1541551206,
+            "tz": "CST",
+            "dow": "Tuesday",
+            "time": "06:40PM",
+            "date": "2018/11/06",
+            "localtime": 1541529606
+          },
+          "departure_delay": -60,
+          "filed_arrival_time": {
+            "epoch": 1541557200,
+            "tz": "PST",
+            "dow": "Tuesday",
+            "time": "06:20PM",
+            "date": "2018/11/06",
+            "localtime": 1541528400
+          },
+          "estimated_arrival_time": {
+            "epoch": 1541557640,
+            "tz": "PST",
+            "dow": "Tuesday",
+            "time": "06:27PM",
+            "date": "2018/11/06",
+            "localtime": 1541528840
+          },
+          "actual_arrival_time": {
+            "epoch": 1541557020,
+            "tz": "PST",
+            "dow": "Tuesday",
+            "time": "06:17PM",
+            "date": "2018/11/06",
+            "localtime": 1541528220
+          },
+          "arrival_delay": -180,
+          "status": "Arrived / Gate Arrival",
+          "progress_percent": 100,
+          "aircrafttype": "CRJ9",
+          "full_aircrafttype": "CRJ9",
+          "adhoc": false
+        },
+        {
+          "ident": "JZA8296",
+          "atc_ident": "JZA296",
+          "faFlightID": "JZA8296-1541312760-airline-0030",
+          "airline": "JZA",
+          "airline_iata": "QK",
+          "flightnumber": "8296",
+          "tailnumber": "C-FSOU",
+          "type": "Form_Airline",
+          "blocked": false,
+          "diverted": false,
+          "cancelled": false,
+          "origin": {
+            "code": "CYXE",
+            "city": "Saskatoon, Saskatchewan",
+            "alternate_ident": "",
+            "airport_name": "Saskatoon Int'l"
+          },
+          "destination": {
+            "code": "CYWG",
+            "city": "Winnipeg, Manitoba",
+            "alternate_ident": "",
+            "airport_name": "Winnipeg Int'l"
+          },
+          "filed_ete": 5340,
+          "route": "YXE J515 VLR AMBIL2",
+          "filed_altitude": 250,
+          "display_filed_altitude": "25,000 feet",
+          "filed_airspeed_kts": 253,
+          "distance_filed": 492,
+          "filed_departure_time": {
+            "epoch": 1541543700,
+            "tz": "CST",
+            "dow": "Tuesday",
+            "time": "04:35PM",
+            "date": "2018/11/06",
+            "localtime": 1541522100
+          },
+          "estimated_departure_time": {
+            "epoch": 1541548500,
+            "tz": "CST",
+            "dow": "Tuesday",
+            "time": "05:55PM",
+            "date": "2018/11/06",
+            "localtime": 1541526900
+          },
+          "actual_departure_time": {
+            "epoch": 1541548440,
+            "tz": "CST",
+            "dow": "Tuesday",
+            "time": "05:54PM",
+            "date": "2018/11/06",
+            "localtime": 1541526840
+          },
+          "departure_delay": 4800,
+          "filed_arrival_time": {
+            "epoch": 1541549040,
+            "tz": "CST",
+            "dow": "Tuesday",
+            "time": "06:04PM",
+            "date": "2018/11/06",
+            "localtime": 1541527440
+          },
+          "estimated_arrival_time": {
+            "epoch": 1541555008,
+            "tz": "CST",
+            "dow": "Tuesday",
+            "time": "07:43PM",
+            "date": "2018/11/06",
+            "localtime": 1541533408
+          },
+          "actual_arrival_time": {
+            "epoch": 1541554317,
+            "tz": "CST",
+            "dow": "Tuesday",
+            "time": "07:31PM",
+            "date": "2018/11/06",
+            "localtime": 1541532717
+          },
+          "arrival_delay": 5277,
+          "status": "Arrived / Gate Arrival",
+          "progress_percent": 100,
+          "aircrafttype": "DH8C",
+          "full_aircrafttype": "DH8C",
+          "adhoc": false
+        },
+        {
+          "ident": "ACA1130",
+          "faFlightID": "ACA1130-1541312760-airline-0140",
+          "airline": "ACA",
+          "airline_iata": "AC",
+          "flightnumber": "1130",
+          "tailnumber": "C-FMZW",
+          "type": "Form_Airline",
+          "blocked": false,
+          "diverted": false,
+          "cancelled": false,
+          "origin": {
+            "code": "CYXE",
+            "city": "Saskatoon, Saskatchewan",
+            "alternate_ident": "",
+            "airport_name": "Saskatoon Int'l"
+          },
+          "destination": {
+            "code": "CYYZ",
+            "city": "Toronto, Ontario",
+            "alternate_ident": "",
+            "airport_name": "Toronto Pearson Int'l"
+          },
+          "filed_ete": 9420,
+          "route": "YQV XOVON VBI J500 YQT OTNIK BOXUM3",
+          "filed_altitude": 370,
+          "display_filed_altitude": "37,000 feet",
+          "filed_airspeed_kts": 457,
+          "distance_filed": 1448,
+          "filed_departure_time": {
+            "epoch": 1541547600,
+            "tz": "CST",
+            "dow": "Tuesday",
+            "time": "05:40PM",
+            "date": "2018/11/06",
+            "localtime": 1541526000
+          },
+          "estimated_departure_time": {
+            "epoch": 1541549100,
+            "tz": "CST",
+            "dow": "Tuesday",
+            "time": "06:05PM",
+            "date": "2018/11/06",
+            "localtime": 1541527500
+          },
+          "actual_departure_time": {
+            "epoch": 1541547600,
+            "tz": "CST",
+            "dow": "Tuesday",
+            "time": "05:40PM",
+            "date": "2018/11/06",
+            "localtime": 1541526000
+          },
+          "departure_delay": 0,
+          "filed_arrival_time": {
+            "epoch": 1541557020,
+            "tz": "EST",
+            "dow": "Tuesday",
+            "time": "09:17PM",
+            "date": "2018/11/06",
+            "localtime": 1541539020
+          },
+          "estimated_arrival_time": {
+            "epoch": 1541557686,
+            "tz": "EST",
+            "dow": "Tuesday",
+            "time": "09:28PM",
+            "date": "2018/11/06",
+            "localtime": 1541539686
+          },
+          "actual_arrival_time": {
+            "epoch": 1541557686,
+            "tz": "EST",
+            "dow": "Tuesday",
+            "time": "09:28PM",
+            "date": "2018/11/06",
+            "localtime": 1541539686
+          },
+          "arrival_delay": 120,
+          "status": "Arrived / Gate Arrival",
+          "progress_percent": 100,
+          "aircrafttype": "E190",
+          "full_aircrafttype": "E190",
+          "adhoc": false
+        },
+        {
+          "ident": "JZA8589",
+          "atc_ident": "JZA589",
+          "faFlightID": "JZA8589-1541312760-airline-0077",
+          "airline": "JZA",
+          "airline_iata": "QK",
+          "flightnumber": "8589",
+          "tailnumber": "C-GLTA",
+          "type": "Form_Airline",
+          "blocked": false,
+          "diverted": false,
+          "cancelled": false,
+          "origin": {
+            "code": "CYXE",
+            "city": "Saskatoon, Saskatchewan",
+            "alternate_ident": "",
+            "airport_name": "Saskatoon Int'l"
+          },
+          "destination": {
+            "code": "CYYC",
+            "city": "Calgary, Alberta",
+            "alternate_ident": "",
+            "airport_name": "Calgary Int'l"
+          },
+          "filed_ete": 4260,
+          "route": "OVATA BORIX BIRKO TOTUB3",
+          "filed_altitude": 200,
+          "display_filed_altitude": "20,000 feet",
+          "filed_airspeed_kts": 276,
+          "distance_filed": 405,
+          "filed_departure_time": {
+            "epoch": 1541547300,
+            "tz": "CST",
+            "dow": "Tuesday",
+            "time": "05:35PM",
+            "date": "2018/11/06",
+            "localtime": 1541525700
+          },
+          "estimated_departure_time": {
+            "epoch": 1541546640,
+            "tz": "CST",
+            "dow": "Tuesday",
+            "time": "05:24PM",
+            "date": "2018/11/06",
+            "localtime": 1541525040
+          },
+          "actual_departure_time": {
+            "epoch": 1541546640,
+            "tz": "CST",
+            "dow": "Tuesday",
+            "time": "05:24PM",
+            "date": "2018/11/06",
+            "localtime": 1541525040
+          },
+          "departure_delay": -540,
+          "filed_arrival_time": {
+            "epoch": 1541551560,
+            "tz": "MST",
+            "dow": "Tuesday",
+            "time": "05:46PM",
+            "date": "2018/11/06",
+            "localtime": 1541526360
+          },
+          "estimated_arrival_time": {
+            "epoch": 1541551975,
+            "tz": "MST",
+            "dow": "Tuesday",
+            "time": "05:52PM",
+            "date": "2018/11/06",
+            "localtime": 1541526775
+          },
+          "actual_arrival_time": {
+            "epoch": 1541551560,
+            "tz": "MST",
+            "dow": "Tuesday",
+            "time": "05:46PM",
+            "date": "2018/11/06",
+            "localtime": 1541526360
+          },
+          "arrival_delay": 0,
+          "status": "Arrived / Gate Arrival",
+          "progress_percent": 100,
+          "aircrafttype": "DH8C",
+          "full_aircrafttype": "DH8C",
+          "adhoc": false
+        },
+        {
+          "ident": "JZA8587",
+          "atc_ident": "JZA587",
+          "faFlightID": "JZA8587-1541312760-airline-0023",
+          "airline": "JZA",
+          "airline_iata": "QK",
+          "flightnumber": "8587",
+          "tailnumber": "C-GGNF",
+          "type": "Form_Airline",
+          "blocked": false,
+          "diverted": false,
+          "cancelled": false,
+          "origin": {
+            "code": "CYXE",
+            "city": "Saskatoon, Saskatchewan",
+            "alternate_ident": "",
+            "airport_name": "Saskatoon Int'l"
+          },
+          "destination": {
+            "code": "CYYC",
+            "city": "Calgary, Alberta",
+            "alternate_ident": "",
+            "airport_name": "Calgary Int'l"
+          },
+          "filed_ete": 3960,
+          "route": "OVATA BORIX BIRKO BIRKO3",
+          "filed_altitude": 220,
+          "display_filed_altitude": "22,000 feet",
+          "filed_airspeed_kts": 341,
+          "distance_filed": 369,
+          "filed_departure_time": {
+            "epoch": 1541538900,
+            "tz": "CST",
+            "dow": "Tuesday",
+            "time": "03:15PM",
+            "date": "2018/11/06",
+            "localtime": 1541517300
+          },
+          "estimated_departure_time": {
+            "epoch": 1541543616,
+            "tz": "CST",
+            "dow": "Tuesday",
+            "time": "04:33PM",
+            "date": "2018/11/06",
+            "localtime": 1541522016
+          },
+          "actual_departure_time": {
+            "epoch": 1541543616,
+            "tz": "CST",
+            "dow": "Tuesday",
+            "time": "04:33PM",
+            "date": "2018/11/06",
+            "localtime": 1541522016
+          },
+          "departure_delay": 540,
+          "filed_arrival_time": {
+            "epoch": 1541542860,
+            "tz": "MST",
+            "dow": "Tuesday",
+            "time": "03:21PM",
+            "date": "2018/11/06",
+            "localtime": 1541517660
+          },
+          "estimated_arrival_time": {
+            "epoch": 1541547488,
+            "tz": "MST",
+            "dow": "Tuesday",
+            "time": "04:38PM",
+            "date": "2018/11/06",
+            "localtime": 1541522288
+          },
+          "actual_arrival_time": {
+            "epoch": 1541547488,
+            "tz": "MST",
+            "dow": "Tuesday",
+            "time": "04:38PM",
+            "date": "2018/11/06",
+            "localtime": 1541522288
+          },
+          "arrival_delay": 4628,
+          "status": "Arrived / Gate Arrival",
+          "progress_percent": 100,
+          "aircrafttype": "DH8D",
+          "full_aircrafttype": "DH8D",
+          "adhoc": false
+        },
+        {
+          "ident": "WJA4493",
+          "faFlightID": "WJA4493-1541532449-0-0-142",
+          "airline": "WJA",
+          "airline_iata": "WS",
+          "flightnumber": "4493",
+          "tailnumber": "C-FLWJ",
+          "type": "Form_Airline",
+          "blocked": false,
+          "diverted": false,
+          "cancelled": false,
+          "origin": {
+            "code": "CYXE",
+            "city": "Saskatoon, Saskatchewan",
+            "alternate_ident": "",
+            "airport_name": "Saskatoon Int'l"
+          },
+          "destination": {
+            "code": "CYYC",
+            "city": "Calgary, Alberta",
+            "alternate_ident": "",
+            "airport_name": "Calgary Int'l"
+          },
+          "filed_ete": 3060,
+          "route": "OVATA BORIX UDPAV BIRKO BIRKO3",
+          "filed_altitude": 380,
+          "display_filed_altitude": "38,000 feet",
+          "filed_airspeed_kts": 435,
+          "distance_filed": 362,
+          "filed_departure_time": {
+            "epoch": 1541538000,
+            "tz": "CST",
+            "dow": "Tuesday",
+            "time": "03:00PM",
+            "date": "2018/11/06",
+            "localtime": 1541516400
+          },
+          "estimated_departure_time": {
+            "epoch": 1541538527,
+            "tz": "CST",
+            "dow": "Tuesday",
+            "time": "03:08PM",
+            "date": "2018/11/06",
+            "localtime": 1541516927
+          },
+          "actual_departure_time": {
+            "epoch": 1541538527,
+            "tz": "CST",
+            "dow": "Tuesday",
+            "time": "03:08PM",
+            "date": "2018/11/06",
+            "localtime": 1541516927
+          },
+          "departure_delay": 527,
+          "filed_arrival_time": {
+            "epoch": 1541541060,
+            "tz": "MST",
+            "dow": "Tuesday",
+            "time": "02:51PM",
+            "date": "2018/11/06",
+            "localtime": 1541515860
+          },
+          "estimated_arrival_time": {
+            "epoch": 1541541741,
+            "tz": "MST",
+            "dow": "Tuesday",
+            "time": "03:02PM",
+            "date": "2018/11/06",
+            "localtime": 1541516541
+          },
+          "actual_arrival_time": {
+            "epoch": 1541541661,
+            "tz": "MST",
+            "dow": "Tuesday",
+            "time": "03:01PM",
+            "date": "2018/11/06",
+            "localtime": 1541516461
+          },
+          "arrival_delay": 601,
+          "status": "Arrived / Gate Arrival",
+          "progress_percent": 100,
+          "aircrafttype": "B737",
+          "full_aircrafttype": "B737",
+          "adhoc": false
+        },
+        {
+          "ident": "SKW4819",
+          "faFlightID": "SKW4819-1541312773-airline-0270",
+          "airline": "SKW",
+          "airline_iata": "OO",
+          "flightnumber": "4819",
+          "tailnumber": "N800SK",
+          "type": "Form_Airline",
+          "codeshares": "WJA6484,KLM6745,DAL4819",
+          "blocked": false,
+          "diverted": false,
+          "cancelled": false,
+          "origin": {
+            "code": "CYXE",
+            "city": "Saskatoon, Saskatchewan",
+            "alternate_ident": "",
+            "airport_name": "Saskatoon Int'l"
+          },
+          "destination": {
+            "code": "KMSP",
+            "city": "Minneapolis, MN",
+            "alternate_ident": "",
+            "airport_name": "Minneapolis/St Paul Intl"
+          },
+          "filed_ete": 6240,
+          "route": "VLN J483 MOT TTAIL BAINY3",
+          "filed_altitude": 370,
+          "display_filed_altitude": "37,000 feet",
+          "filed_airspeed_kts": 448,
+          "distance_filed": 894,
+          "filed_departure_time": {
+            "epoch": 1541536680,
+            "tz": "CST",
+            "dow": "Tuesday",
+            "time": "02:38PM",
+            "date": "2018/11/06",
+            "localtime": 1541515080
+          },
+          "estimated_departure_time": {
+            "epoch": 1541536697,
+            "tz": "CST",
+            "dow": "Tuesday",
+            "time": "02:38PM",
+            "date": "2018/11/06",
+            "localtime": 1541515097
+          },
+          "actual_departure_time": {
+            "epoch": 1541536697,
+            "tz": "CST",
+            "dow": "Tuesday",
+            "time": "02:38PM",
+            "date": "2018/11/06",
+            "localtime": 1541515097
+          },
+          "departure_delay": -300,
+          "filed_arrival_time": {
+            "epoch": 1541542920,
+            "tz": "CST",
+            "dow": "Tuesday",
+            "time": "04:22PM",
+            "date": "2018/11/06",
+            "localtime": 1541521320
+          },
+          "estimated_arrival_time": {
+            "epoch": 1541543617,
+            "tz": "CST",
+            "dow": "Tuesday",
+            "time": "04:33PM",
+            "date": "2018/11/06",
+            "localtime": 1541522017
+          },
+          "actual_arrival_time": {
+            "epoch": 1541543617,
+            "tz": "CST",
+            "dow": "Tuesday",
+            "time": "04:33PM",
+            "date": "2018/11/06",
+            "localtime": 1541522017
+          },
+          "arrival_delay": 660,
+          "status": "Arrived / Gate Arrival",
+          "progress_percent": 100,
+          "aircrafttype": "CRJ9",
+          "full_aircrafttype": "CRJ9",
+          "inbound_faFlightID": "SKW4820-1541312773-airline-0257",
+          "adhoc": false
+        },
+        {
+          "ident": "WEN3369",
+          "faFlightID": "WEN3369-1541312773-airline-0346",
+          "airline": "WEN",
+          "airline_iata": "WR",
+          "flightnumber": "3369",
+          "tailnumber": "C-FUWE",
+          "type": "Form_Airline",
+          "codeshares": "KLM9581,WJA3369",
+          "blocked": false,
+          "diverted": false,
+          "cancelled": false,
+          "origin": {
+            "code": "CYXE",
+            "city": "Saskatoon, Saskatchewan",
+            "alternate_ident": "",
+            "airport_name": "Saskatoon Int'l"
+          },
+          "destination": {
+            "code": "CYYC",
+            "city": "Calgary, Alberta",
+            "alternate_ident": "",
+            "airport_name": "Calgary Int'l"
+          },
+          "filed_ete": 3360,
+          "route": "OVATA BORIX UDPAV BIRKO BIRKO3",
+          "filed_altitude": 240,
+          "display_filed_altitude": "24,000 feet",
+          "filed_airspeed_kts": 354,
+          "distance_filed": 373,
+          "filed_departure_time": {
+            "epoch": 1541532000,
+            "tz": "CST",
+            "dow": "Tuesday",
+            "time": "01:20PM",
+            "date": "2018/11/06",
+            "localtime": 1541510400
+          },
+          "estimated_departure_time": {
+            "epoch": 1541532660,
+            "tz": "CST",
+            "dow": "Tuesday",
+            "time": "01:31PM",
+            "date": "2018/11/06",
+            "localtime": 1541511060
+          },
+          "actual_departure_time": {
+            "epoch": 1541532660,
+            "tz": "CST",
+            "dow": "Tuesday",
+            "time": "01:31PM",
+            "date": "2018/11/06",
+            "localtime": 1541511060
+          },
+          "departure_delay": 780,
+          "filed_arrival_time": {
+            "epoch": 1541535360,
+            "tz": "MST",
+            "dow": "Tuesday",
+            "time": "01:16PM",
+            "date": "2018/11/06",
+            "localtime": 1541510160
+          },
+          "estimated_arrival_time": {
+            "epoch": 1541536560,
+            "tz": "MST",
+            "dow": "Tuesday",
+            "time": "01:36PM",
+            "date": "2018/11/06",
+            "localtime": 1541511360
+          },
+          "actual_arrival_time": {
+            "epoch": 1541536560,
+            "tz": "MST",
+            "dow": "Tuesday",
+            "time": "01:36PM",
+            "date": "2018/11/06",
+            "localtime": 1541511360
+          },
+          "arrival_delay": 240,
+          "status": "Arrived / Gate Arrival",
+          "progress_percent": 100,
+          "aircrafttype": "DH8D",
+          "full_aircrafttype": "DH8D",
+          "adhoc": false
+        },
+        {
+          "ident": "WEN3211",
+          "faFlightID": "WEN3211-1541312773-airline-0198",
+          "airline": "WEN",
+          "airline_iata": "WR",
+          "flightnumber": "3211",
+          "tailnumber": "C-GWEQ",
+          "type": "Form_Airline",
+          "codeshares": "KLM9585,WJA3211",
+          "blocked": false,
+          "diverted": false,
+          "cancelled": false,
+          "origin": {
+            "code": "CYXE",
+            "city": "Saskatoon, Saskatchewan",
+            "alternate_ident": "",
+            "airport_name": "Saskatoon Int'l"
+          },
+          "destination": {
+            "code": "CYEG",
+            "city": "Edmonton Capital Region, Alberta",
+            "alternate_ident": "",
+            "airport_name": "Edmonton Int'l"
+          },
+          "filed_ete": 2820,
+          "route": "YXE J515 CAMRA IGSOX2",
+          "filed_altitude": 240,
+          "display_filed_altitude": "24,000 feet",
+          "filed_airspeed_kts": 354,
+          "distance_filed": 331,
+          "filed_departure_time": {
+            "epoch": 1541526900,
+            "tz": "CST",
+            "dow": "Tuesday",
+            "time": "11:55AM",
+            "date": "2018/11/06",
+            "localtime": 1541505300
+          },
+          "estimated_departure_time": {
+            "epoch": 1541528220,
+            "tz": "CST",
+            "dow": "Tuesday",
+            "time": "12:17PM",
+            "date": "2018/11/06",
+            "localtime": 1541506620
+          },
+          "actual_departure_time": {
+            "epoch": 1541528220,
+            "tz": "CST",
+            "dow": "Tuesday",
+            "time": "12:17PM",
+            "date": "2018/11/06",
+            "localtime": 1541506620
+          },
+          "departure_delay": 1320,
+          "filed_arrival_time": {
+            "epoch": 1541529720,
+            "tz": "MST",
+            "dow": "Tuesday",
+            "time": "11:42AM",
+            "date": "2018/11/06",
+            "localtime": 1541504520
+          },
+          "estimated_arrival_time": {
+            "epoch": 1541531700,
+            "tz": "MST",
+            "dow": "Tuesday",
+            "time": "12:15PM",
+            "date": "2018/11/06",
+            "localtime": 1541506500
+          },
+          "actual_arrival_time": {
+            "epoch": 1541531700,
+            "tz": "MST",
+            "dow": "Tuesday",
+            "time": "12:15PM",
+            "date": "2018/11/06",
+            "localtime": 1541506500
+          },
+          "arrival_delay": 1020,
+          "status": "Arrived / Gate Arrival",
+          "progress_percent": 100,
+          "aircrafttype": "DH8D",
+          "full_aircrafttype": "DH8D",
+          "adhoc": false
+        },
+        {
+          "ident": "JZA8585",
+          "atc_ident": "JZA585",
+          "faFlightID": "JZA8585-1541312772-airline-0120",
+          "airline": "JZA",
+          "airline_iata": "QK",
+          "flightnumber": "8585",
+          "tailnumber": "C-GIJZ",
+          "type": "Form_Airline",
+          "blocked": false,
+          "diverted": false,
+          "cancelled": false,
+          "origin": {
+            "code": "CYXE",
+            "city": "Saskatoon, Saskatchewan",
+            "alternate_ident": "",
+            "airport_name": "Saskatoon Int'l"
+          },
+          "destination": {
+            "code": "CYYC",
+            "city": "Calgary, Alberta",
+            "alternate_ident": "",
+            "airport_name": "Calgary Int'l"
+          },
+          "filed_ete": 3360,
+          "route": "OVATA BORIX BIRKO BIRKO3",
+          "filed_altitude": 240,
+          "display_filed_altitude": "24,000 feet",
+          "filed_airspeed_kts": 304,
+          "distance_filed": 339,
+          "filed_departure_time": {
+            "epoch": 1541525700,
+            "tz": "CST",
+            "dow": "Tuesday",
+            "time": "11:35AM",
+            "date": "2018/11/06",
+            "localtime": 1541504100
+          },
+          "estimated_departure_time": {
+            "epoch": 1541527170,
+            "tz": "CST",
+            "dow": "Tuesday",
+            "time": "11:59AM",
+            "date": "2018/11/06",
+            "localtime": 1541505570
+          },
+          "actual_departure_time": {
+            "epoch": 1541527170,
+            "tz": "CST",
+            "dow": "Tuesday",
+            "time": "11:59AM",
+            "date": "2018/11/06",
+            "localtime": 1541505570
+          },
+          "departure_delay": -60,
+          "filed_arrival_time": {
+            "epoch": 1541529060,
+            "tz": "MST",
+            "dow": "Tuesday",
+            "time": "11:31AM",
+            "date": "2018/11/06",
+            "localtime": 1541503860
+          },
+          "estimated_arrival_time": {
+            "epoch": 1541530845,
+            "tz": "MST",
+            "dow": "Tuesday",
+            "time": "12:00PM",
+            "date": "2018/11/06",
+            "localtime": 1541505645
+          },
+          "actual_arrival_time": {
+            "epoch": 1541530845,
+            "tz": "MST",
+            "dow": "Tuesday",
+            "time": "12:00PM",
+            "date": "2018/11/06",
+            "localtime": 1541505645
+          },
+          "arrival_delay": 1785,
+          "status": "Arrived / Gate Arrival",
+          "progress_percent": 100,
+          "aircrafttype": "DH8D",
+          "full_aircrafttype": "DH8D",
+          "adhoc": false
+        },
+        {
+          "ident": "WEN3379",
+          "faFlightID": "WEN3379-1541312773-airline-0128",
+          "airline": "WEN",
+          "airline_iata": "WR",
+          "flightnumber": "3379",
+          "tailnumber": "C-FOEN",
+          "type": "Form_Airline",
+          "codeshares": "QFA3612,WJA3379",
+          "blocked": false,
+          "diverted": false,
+          "cancelled": false,
+          "origin": {
+            "code": "CYXE",
+            "city": "Saskatoon, Saskatchewan",
+            "alternate_ident": "",
+            "airport_name": "Saskatoon Int'l"
+          },
+          "destination": {
+            "code": "CYYC",
+            "city": "Calgary, Alberta",
+            "alternate_ident": "",
+            "airport_name": "Calgary Int'l"
+          },
+          "filed_ete": 3360,
+          "route": "OVATA BORIX UDPAV BIRKO BIRKO3",
+          "filed_altitude": 240,
+          "display_filed_altitude": "24,000 feet",
+          "filed_airspeed_kts": 354,
+          "distance_filed": 343,
+          "filed_departure_time": {
+            "epoch": 1541525100,
+            "tz": "CST",
+            "dow": "Tuesday",
+            "time": "11:25AM",
+            "date": "2018/11/06",
+            "localtime": 1541503500
+          },
+          "estimated_departure_time": {
+            "epoch": 1541526245,
+            "tz": "CST",
+            "dow": "Tuesday",
+            "time": "11:44AM",
+            "date": "2018/11/06",
+            "localtime": 1541504645
+          },
+          "actual_departure_time": {
+            "epoch": 1541526245,
+            "tz": "CST",
+            "dow": "Tuesday",
+            "time": "11:44AM",
+            "date": "2018/11/06",
+            "localtime": 1541504645
+          },
+          "departure_delay": 0,
+          "filed_arrival_time": {
+            "epoch": 1541528460,
+            "tz": "MST",
+            "dow": "Tuesday",
+            "time": "11:21AM",
+            "date": "2018/11/06",
+            "localtime": 1541503260
+          },
+          "estimated_arrival_time": {
+            "epoch": 1541529878,
+            "tz": "MST",
+            "dow": "Tuesday",
+            "time": "11:44AM",
+            "date": "2018/11/06",
+            "localtime": 1541504678
+          },
+          "actual_arrival_time": {
+            "epoch": 1541529878,
+            "tz": "MST",
+            "dow": "Tuesday",
+            "time": "11:44AM",
+            "date": "2018/11/06",
+            "localtime": 1541504678
+          },
+          "arrival_delay": 300,
+          "status": "Arrived / Gate Arrival",
+          "progress_percent": 100,
+          "aircrafttype": "DH8D",
+          "full_aircrafttype": "DH8D",
+          "adhoc": false
+        }
+      ]
+    }
+  }
+}
