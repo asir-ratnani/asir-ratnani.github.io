@@ -5,7 +5,8 @@
 // Extra for Experts:
 // 
 
-let widths = [425,200,150,100,100,125];
+let widths = [425,200,175,125,125,250];
+let airlineArray = ["Air Canada", "WestJet", "Air Canada Jazz", "Delta", "Sunwing", "Tranwest Air"]
 let rows = 15;
 let cols = 6;
 let grid;
@@ -13,6 +14,9 @@ let cellSize;
 let info;
 let departures, arrivals, scheduled, enroute;
 let typeOfFlight;
+let x,y;
+let airlines;
+
 
 // WebAuthentication
 // WebAuthentication
@@ -31,15 +35,27 @@ function preload() {
 }
 
 function setup() {
-  createCanvas(1100, 750);
+  createCanvas(1300, 750);
   cellSize = height / rows;
   grid = create2dArray(cols, rows);
+  x = 10;
+  y = 45;
  
 
   departures = info.AirportBoardsResult.departures.flights;
   // arrivals = info.AirportBoardsResult.arrivals.flights;
   // scheduled = info.AirportBoardsResult.scheduled.flights;
   // enroute = info.AirportBoardsResult.enroute.flights;
+
+
+  if (departures[7].airline === "WEN" ) {
+    airlines = airlineArray[1]
+    console.log("WestJet");
+  }
+
+  else {
+    console.log("Other Airline");
+  }
 
 }
 
@@ -52,24 +68,38 @@ function draw() {
 function displayJSON() {
   
   for (let j = 0; j < cols; j++) {
-    let x = 10;
-    let y = 45;
+    y = 45;  
     for (let i =0; i < rows; i++) {
+      if (departures[i].airline === "WEN" || departures[i].airline === "WJA"  ) {
+        airlines = airlineArray[1];
+      }
+      else if(departures[i].airline === "ACA") {
+        airlines = airlineArray[0];
+      }
+      else if(departures[i].airline === "JZA") {
+        airlines = airlineArray[2];
+      }
+      else if (departures[i].airline === "SKW") {
+        airlines = airlineArray[3]
+      }
       if (departures[i].type === "Form_Airline") {
+        
         // console.log(departures[i].destination.city);
-        fill(255);
-        textSize(32);
+        fill(0);
+        textSize(20);
         textFont('Georgia');
         // textAlign(CENTER, BASELINE);
         text(departures[i].destination.city, x, y);
-        text(departures[i].airline, width[0] + x, y);
-        text(departures[i].ident, width[1] + x, y);
-        text(departures[i].filed_departure_time.time, width[2] + x, y);
-        text(departures[i].actual_departure_time.time, width[3] + x, y);
-        text(departures[i].status, width[4] + x, y);
+        text(airlines, widths[0] + x, y);
+        text(departures[i].ident, widths[0] + widths[1] + x, y);
+        text(departures[i].filed_departure_time.time, widths[0] + widths[1] + widths[2] + x, y);
+        text(departures[i].actual_departure_time.time, widths[0] + widths[1] + widths[2] + widths[3] + x, y);
+        text(departures[i].status, widths[0] + widths[1] + widths[2] + widths[3] + widths[4] + x , y);
         y += 50; 
       }
     }
+    
+
   }
 }
 
