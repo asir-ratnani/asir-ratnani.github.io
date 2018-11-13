@@ -6,23 +6,33 @@
 // 
 
 let widths = [425,200,175,125,125,250];
-let airlineArray = ["Air Canada", "WestJet", "Air Canada Jazz", "Delta", "Sunwing", "Tranwest Air"]
+let airlineCodes = new Map ();
 let rows = 15;
 let cols = 6;
 let grid;
+let x,y;
 let cellSize;
 let info;
 let departures, arrivals, scheduled, enroute;
 let typeOfFlight;
-let x,y;
-let airlines;
+let state = 1;
+let status;
+let font_1, font_2, font_3;
+let airport_code;
+let username = 'ARatnani';
+let password = 'fc2a7d607c39780ddb797b27a76572a79d82ff12';
+let a;
+let url;
 
+
+// httpGet("http://flightxml.flightaware.com/json/FlightXML3/METHODNAME");
+// httpDo("http://flightxml.flightaware.com/json/FlightXML3/METHODNAME", [method], [data], [datatype], [callback], [errorCallback])
 
 // WebAuthentication
 // WebAuthentication
 // httpGet("http://flightxml.flightaware.com/json/FlightXML3/WeatherConditions?airport_code=KJFK&weather_date=0&howMany=1&offset=0");
 
-//let url = http://flightxml.flightaware.com/json/FlightXML3/METHODNAME
+// let url = http://flightxml.flightaware.com/json/FlightXML3/METHODNAME
 // Username = "ARatnani"
 // API Key = "fc2a7d607c39780ddb797b27a76572a79d82ff12"
 // fxmlUrl = "https://flightxml.flightaware.com/json/FlightXML3/"
@@ -30,12 +40,19 @@ let airlines;
 // let url = 'https://flightxml.flightaware.com/json/FlightXML3/AirportBoards?airport_code=CYXE'
 
 function preload() {
-  info = loadJSON("assets/AirportBoards.json");
+  airport_code = "CYXE";
+  // info = loadJSON("https://ARatnani:fc2a7d607c39780ddb797b27a76572a79d82ff12@flightxml.flightaware.com/json/FlightXML3/AirportBoards?airport_code=CYXE");
+  font_1 = loadFont("assets/open-24-display/Open 24 Display St.ttf");
+  font_2 = loadFont("assets/famirids/Famirids..ttf");
+  font_3 = loadFont("assets/digital-dream/DigitalDream.ttf");
+
+  info  = loadJSON('https://flightxml.flightaware.com/json/FlightXML3/AirportBoards?airport_code=CYXE');
 
 }
 
 function setup() {
-  createCanvas(1300, 750);
+  createCanvas(1700, 900);
+  url = 'https://flightxml.flightaware.com/json/FlightXML3/AirportBoards?airport_code=' + airport_code;
   cellSize = height / rows;
   grid = create2dArray(cols, rows);
   x = 10;
@@ -43,101 +60,168 @@ function setup() {
  
 
   departures = info.AirportBoardsResult.departures.flights;
-  // arrivals = info.AirportBoardsResult.arrivals.flights;
-  // scheduled = info.AirportBoardsResult.scheduled.flights;
-  // enroute = info.AirportBoardsResult.enroute.flights;
+  arrivals = info.AirportBoardsResult.arrivals.flights;
+  scheduled = info.AirportBoardsResult.scheduled.flights;
+  enroute = info.AirportBoardsResult.enroute.flights;
+
+  airlineCodes.set("ACA", "Air Canada");
+  airlineCodes.set("JZA", "Air Canada Jazz");
+  airlineCodes.set("WJA", "WestJet");
+  airlineCodes.set("WEN", "Westjet Encore");
+  airlineCodes.set("SKW", "Delta");
+  airlineCodes.set("DAL", "Delta");
+  airlineCodes.set("EDV", "Delta");
+  airlineCodes.set("CJT", "CargoJet");
+  airlineCodes.set("SWG", "Sunwing");
+  airlineCodes.set("SLQ", "Express Air");
+  airlineCodes.set("WEW", "Transwest Air");
+  airlineCodes.set("SLG", "Transwest Air");
 
 
-  if (departures[7].airline === "WEN" ) {
-    airlines = airlineArray[1]
-    console.log("WestJet");
-  }
 
-  else {
-    console.log("Other Airline");
-  }
+  
 
 }
 
 function draw() {
-  background(125);
+  
+  a = httpDo (
+    url,
+    {
+      method: 'POST',
+      headers: {username: 'ARatnani', password: 'fc2a7d607c39780ddb797b27a76572a79d82ff12'}
+    },
+    function(res) {
+      info = res;
+    }
+  );
+
+
+
+
+  background(20);
+  determineState();
   displayGrid();
   displayJSON();
 }
+function determineState() {
+  if (state === 1) {
+    status = scheduled;
+    fill(255);
+    textFont(font_1);
+    textSize(35);
+    textAlign(CENTER);
+    text(info.AirportBoardsResult.airport_info.name + " Airport", 1500, height / 2 - 75);
+    text("Scheduled Flights", 1500, height/2);
 
+    fill(200);
+    textFont(font_3);
+    textSize(28);
+    textAlign(CENTER);
+    text("SCHEDULED", 170, 40);
+  }
+
+  else if (state === 2) {
+    status = departures;
+
+    fill(255);
+    textFont(font_1);
+    textSize(35);
+    textAlign(CENTER);
+    text(info.AirportBoardsResult.airport_info.name + " Airport", 1500, height / 2 - 75);
+    text("Departed Flights", 1500, height/2);
+
+    fill(200);
+    textFont(font_3);
+    textSize(28);
+    textAlign(CENTER);
+    text("DEPARTED", 170, 40);
+  }
+  else if (state === 3) {
+    status = arrivals;
+
+    fill(255);
+    textFont(font_1);
+    textSize(35);
+    textAlign(CENTER);
+    text(info.AirportBoardsResult.airport_info.name + " Airport", 1500, height / 2 - 75);
+    text("Arrived Flights", 1500, height/2);
+
+    fill(200);
+    textFont(font_3);
+    textSize(28);
+    textAlign(CENTER);
+    text("ARRIVALS", 170, 40);
+  }
+  
+  // else if (state === 4) {
+  //   status = enroute;
+  // }
+}
 function displayJSON() {
+  textAlign(LEFT);
+  fill(200);
+  textFont(font_3);
+  textSize(28);
+  text("AIRLINE", widths[0] + 10, 40);
+  text("FLIGHT", widths[0] + widths[1]+ 10, 40);
+  text("STATUS", widths[0] + widths[1] + widths[2] + widths[3] + widths[4] + 10, 40);
+  textSize(19);
+  text("EST.TIME", widths[0] + widths[1] + widths[2] + 3, 40);
+  textSize(24);
+  text("ACTUAL", widths[0] + widths[1] + widths[2] + widths[3] + 10, 40);
+
   
   for (let j = 0; j < cols; j++) {
     y = 45;  
     for (let i =0; i < rows; i++) {
-      if (departures[i].airline === "WEN" || departures[i].airline === "WJA"  ) {
-        airlines = airlineArray[1];
-      }
-      else if(departures[i].airline === "ACA") {
-        airlines = airlineArray[0];
-      }
-      else if(departures[i].airline === "JZA") {
-        airlines = airlineArray[2];
-      }
-      else if (departures[i].airline === "SKW") {
-        airlines = airlineArray[3]
-      }
-      if (departures[i].type === "Form_Airline") {
+      if (scheduled[i].type === "Form_Airline") {
+        y += 60;
+
+        fill(200,200,20);
+        textSize(30);
+        textFont(font_1);
+        textAlign(LEFT);
+        // Check for departure or enroute city or arrival / scheduled city
+        if (status[i].cancelled === true) {
+          fill(255,0,0);
+        }
+        else {
+          fill(200,200,20);
+        }
+
+        if (status[i].destination.city === "" || status[i].origin.city === "") {
+          text("Private Charter", x, y);
+        }
+        else {
+          if (status === departures || status === scheduled) {
+            text(status[i].destination.city, x, y);text(status[i].destination.city, x, y);
+          }
+          else {
+            text(status[i].origin.city, x, y);
+          }
+        }
         
-        // console.log(departures[i].destination.city);
-        fill(0);
-        textSize(20);
-        textFont('Georgia');
-        // textAlign(CENTER, BASELINE);
-        text(departures[i].destination.city, x, y);
-        text(airlines, widths[0] + x, y);
-        text(departures[i].ident, widths[0] + widths[1] + x, y);
-        text(departures[i].filed_departure_time.time, widths[0] + widths[1] + widths[2] + x, y);
-        text(departures[i].actual_departure_time.time, widths[0] + widths[1] + widths[2] + widths[3] + x, y);
-        text(departures[i].status, widths[0] + widths[1] + widths[2] + widths[3] + widths[4] + x , y);
-        y += 50; 
+        textSize(25);
+        if (airlineCodes.has(status[i].airline)) {
+          text(airlineCodes.get(status[i].airline), widths[0]+ x, y);
+        }
+        else {
+          text("Unknown Airline", widths[0] + x, y);
+        }
+        text(status[i].ident, widths[0] + widths[1] + x, y);
+        text(status[i].filed_departure_time.time, widths[0] + widths[1] + widths[2] + x, y);
+        text(status[i].actual_departure_time.time, widths[0] + widths[1] + widths[2] + widths[3] + x, y);
+
+        text(status[i].status, widths[0] + widths[1] + widths[2] + widths[3] + widths[4] + x , y);
       }
     }
-    
-
   }
 }
 
 function displayGrid() {
   for (let y = 0; y < rows; y++ ) {
     for (let x = 0; x < cols; x++) {
-      
-      if(grid[y][x] === "C") {
-        fill(0);
-        textSize(32);
-        textAlign(CENTER, BASELINE);
-        text(cities[x], widths[x] / 2, height / rows - 10);
-      }
-      if (grid[y][x] === "M") {
-        fill(0);
-        textSize(32);
-        textAlign(CENTER);
-        text(cities[x], widths[x] / 4, height / rows + 60);
-      }
-
-      else if (grid[y][x] === "T") {
-        fill(0,0,255);
-      }
-      else if (grid[y][x] === "E") {
-        fill(255,0,225);
-      }
-      else if (grid[y][x] === "V") {
-        fill(255,0,0);
-      }
-      else if (grid[y][x] === "W") {
-        fill(29,225,255);
-      }
-      else if (grid[y][x] === "P") {
-        fill(222,220,25);
-      }
-      else {
-        fill (255);
-      }
       let startingX = 0;
       let i = 0;
       while (i < x) {
@@ -145,8 +229,8 @@ function displayGrid() {
         i++;
       }
       noFill();
-      rect (startingX, y*cellSize, widths[x], height / rows );
-  }
+      rect (startingX, y*cellSize, widths[x], height / rows);
+}
 }
 }
 function create2dArray(cols,rows) {
@@ -165,8 +249,17 @@ function create2dArray(cols,rows) {
   return departuresGrid;
 }
 
-function cleanUpTheGrid() {
-  for (let i=0; i < grid.length; i++) {
-    grid[i] = grid[i].split("");  //turns it into a 2d array
+function mouseClicked() {
+  if (state === 1) {
+    state = 2;
   }
+  else if(state === 2) {
+    state = 3;
+  }
+  else if (state === 3) {
+    state = 1;
+  }
+  // else if (state === 4) {
+  //   state = 1;
+  // }
 }
