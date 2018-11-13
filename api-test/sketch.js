@@ -1,9 +1,14 @@
-// 2-D Array Assignment - Departures/Arrivals Board
-// Asir Ratnani
-// November 13, 2018
+// Project Title
+// Your Name
+// Date
 //
 // Extra for Experts:
-// 
+// - describe what you did to take this project "above and beyond"
+
+let username = "ARatnani";
+let apiKey = "fc2a7d607c39780ddb797b27a76572a79d82ff12";
+let baseFxmlUrl = "https://" + username + ":" + apiKey +"@flightxml.flightaware.com/json/FlightXML3/";
+let departures, arrivals, scheduled, enroute;
 
 let widths = [425,200,175,125,125,250];
 let airlineCodes = new Map ();
@@ -12,48 +17,42 @@ let cols = 6;
 let grid;
 let x,y;
 let cellSize;
-let info;
-let departures, arrivals, scheduled, enroute;
 let typeOfFlight;
 let state = 1;
 let status;
 let font_1, font_2, font_3;
 let airport_code;
 
-// Ignore the following code, this is to be used for pulling live data from FlightAware.
-// httpGet("http://flightxml.flightaware.com/json/FlightXML3/METHODNAME");
-// httpDo("http://flightxml.flightaware.com/json/FlightXML3/METHODNAME", [method], [data], [datatype], [callback], [errorCallback])
+let info = [];
 
-// WebAuthentication
-// WebAuthentication
-// httpGet("http://flightxml.flightaware.com/json/FlightXML3/WeatherConditions?airport_code=KJFK&weather_date=0&howMany=1&offset=0");
-
-// let url = http://flightxml.flightaware.com/json/FlightXML3/METHODNAME
-// Username = "********"
-// API Key = "***********"
-// fxmlUrl = "https://flightxml.flightaware.com/json/FlightXML3/"
-
-// let url = 'https://flightxml.flightaware.com/json/FlightXML3/AirportBoards?airport_code=CYXE'
+let requestOptions = {
+  "airport_code": "CYXE",
+  "howMany": 15,
+  "offset": 0
+};
 
 function preload() {
-  info = loadJSON('assets/AirportBoards.json')
+  loadFlightXML();
+
   font_1 = loadFont("assets/open-24-display/Open 24 Display St.ttf");
   font_2 = loadFont("assets/famirids/Famirids..ttf");
   font_3 = loadFont("assets/digital-dream/DigitalDream.ttf");
 }
 
 function setup() {
-  createCanvas(1700, 900);
+  createCanvas(windowWidth, windowHeight);
+
   cellSize = height / rows;
   grid = create2dArray(cols, rows);
   x = 10;
   y = 45;
  
-
-  departures = info.AirportBoardsResult.departures.flights;
-  arrivals = info.AirportBoardsResult.arrivals.flights;
-  scheduled = info.AirportBoardsResult.scheduled.flights;
-  enroute = info.AirportBoardsResult.enroute.flights;
+  airport_code = 'CYXE';
+  
+  // departures = info.AirportBoardsResult.departures.flights;
+  // arrivals = info.AirportBoardsResult.arrivals.flights;
+  // scheduled = info.AirportBoardsResult.scheduled.flights;
+  // enroute = info.AirportBoardsResult.enroute.flights;
 
   airlineCodes.set("ACA", "Air Canada");
   airlineCodes.set("JZA", "Air Canada Jazz");
@@ -67,18 +66,55 @@ function setup() {
   airlineCodes.set("SLQ", "Express Air");
   airlineCodes.set("WEW", "Transwest Air");
   airlineCodes.set("SLG", "Transwest Air");
-
-
-
-  
-
 }
 
 function draw() {
   background(20);
-  determineState();
-  displayGrid();
-  displayJSON();
+  textSize(20);
+  for (let i = 0; i<info.length; i++) {
+    text(info[i], 50, i * 50 + 100);
+  }
+  fill(255);
+  text(info[0],50,50);
+  // determineState();
+  // displayGrid();
+  // displayJSON();
+}
+
+
+
+// function pushInfo(){
+//   for (let i = 0; i<info.length; i++) {
+//     text(info[i], 50, i * 50 + 100);
+//   }
+// }
+
+function loadFlightXML() {
+  $.ajax({
+    url: baseFxmlUrl + 'AirportBoards?airport_code=' + airport_code,
+    data: requestOptions,
+    method: 'GET',
+    jsonp: 'jsonp_callback',
+    dataType: 'jsonp',
+    success: function(data, txtStatus, xhr) {
+      if (data.error) {
+        alert('Failed to fetch airport boards for: ' + airport_code + data.error);
+        return;
+      }
+      data.AirportBoardsResult.departures.flights.forEach(flight => {
+        // Check for flight that has actually departed
+      if (cancelled === false) {
+          // Display basic information about the flight
+          console.log("ident");
+
+          return;
+      }
+    });
+  },
+    error: function(data, text) {
+      alert('Failed to decode route: ' + data);
+    }
+  });
 }
 function determineState() {
   if (state === 1) {
