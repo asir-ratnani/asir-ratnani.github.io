@@ -45,7 +45,7 @@ function preload() {
 function setup() {
   createCanvas(1700, 900);
   cellSize = height / rows;
-  grid = create2dArray(cols, rows);
+  // grid = create2dArray(cols, rows);
   x = 10;
   y = 45;
  
@@ -151,7 +151,7 @@ function displayJSON() {
   for (let j = 0; j < cols; j++) {
     y = 45;  
     for (let i =0; i < rows; i++) {
-      if (scheduled[i].type === "Form_Airline") {
+      if (scheduled[i].type === "Form_Airline") {x, y
         y += 60;
 
         fill(200,200,20);
