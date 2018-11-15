@@ -30,13 +30,13 @@ let typeOfFlight;
 let state = 1;
 let status;
 let font_1, font_2, font_3;
-let airport_code;
 let flightInfo;
 let counter;
 let airport_name;
 let flight_cancelled;
 let flight_type;
 let departures;
+let airport_code = "CYXE";
 
 let input, button, greeting;
 
@@ -293,17 +293,19 @@ function displayGrid() {
 
 // This is to be used once scheduled, arrivals, and departures can all work together :)
 
-  // function mouseClicked() {
-  //   if (state === 1) {
-  //     state = 2;
-  //   }
-  //   else if(state === 2) {
-  //     state = 3;
-  //   }
-  //   else if (state === 3) {
-  //     state = 1;
-  //   }
-  //   // else if (state === 4) {
-  //   //   state = 1;
-  //   // }
-  // }
+  function mouseClicked() {
+    requestOptions.airport_code = "CYQR";
+    // loop();
+    // if (state === 1) {
+    //   state = 2;
+    // }
+    // else if(state === 2) {
+    //   state = 3;
+    // }
+    // else if (state === 3) {
+    //   state = 1;
+    // }
+    // else if (state === 4) {
+    //   state = 1;
+    // }
+  }
