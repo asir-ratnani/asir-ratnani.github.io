@@ -76,6 +76,8 @@ function inputAirportCode () {
 }
 function setup() {
   createCanvas(windowWidth, windowHeight);
+  
+
   //Set up grid var's
   cellSize = height / rows;
   x = 10;
@@ -108,6 +110,7 @@ function draw() {
   determineState();
   displayGrid();
   displayJSON();
+  noLoop();
 }
 
 
@@ -294,7 +297,15 @@ function displayGrid() {
 // This is to be used once scheduled, arrivals, and departures can all work together :)
 
   function mouseClicked() {
+    loop();
     requestOptions.airport_code = "CYQR";
+
+    for (let i = 0; i < 15; i ++) {
+      info.pop();
+    }
+    loadFlightXML();
+    noLoop();
+
     // loop();
     // if (state === 1) {
     //   state = 2;
