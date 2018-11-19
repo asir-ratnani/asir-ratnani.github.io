@@ -13,11 +13,18 @@ class Ball {
     this.dx = random(-20,20);
     this.dy = random(-20,20);
     this.color = color(random(255), random(255), random(255));
+    this.isCollidingCurrently = false;
   }
 
   display() {
     noStroke();
-    fill(this.color);
+    if (this.isCollidingCurrently) {
+      fill(255,0,0,255);
+      
+    }
+    else {
+      fill(this.color);
+    }
     ellipse(this.x, this.y, this.radius * 2, this.radius * 2);
   }
   update () {
@@ -29,6 +36,17 @@ class Ball {
     }
     if (this.x <= 0 + this.radius || this.x >= width - this.radius) {
       this.dx *= -1;
+    }
+  }
+  collisionDetector(otherBall) {
+    if (dist(this.x,this.y, otherBall.x, otherBall.y) <= this.radius + otherBall.radius) {
+      // the balls are colliding
+      this.isCollidingCurrently = true;
+      // otherBall.isCollidingCurrently = true;
+    }
+    else {
+      this.isCollidingCurrently = false;
+      // otherBall.isCollidingCurrently = false;
     }
   }
 }
@@ -44,6 +62,11 @@ function setup() {
 function draw() {
   background(0);
   for (let i = ballArray.length - 1; i >= 0; i--) {
+    for (let j = ballArray.length - 1; j >= 0; j--) {
+      if (i !== j) {
+        ballArray[i].collisionDetector(ballArray[j]);
+      }
+    }
     ballArray[i].update();
     ballArray[i].display();
   }

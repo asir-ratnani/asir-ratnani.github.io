@@ -10,7 +10,7 @@
 //
 // Asir:
 // Create boundary 
-// Make the puck look nicer
+// Make the paddle look nicer
 // Make sure the paddle doesnt fly off screen
 // Add another paddle;
 // Menu
@@ -24,38 +24,52 @@
 // Find amazing, awsome, great music
 
 
+let paddle_1 = {
+  x: 75,
+  y: height/2,
+  dx: 10, 
+  dy: 10,
+  width: 25,
+  height: 80,
+  color: "red",
+};
 
-class AirHockeyPaddle {
-  constructor (x,y) {
-    this.x = x;
-    this.y = y;
-    this.dx = 10
-    this.dy = 10
-    this.size = 25;
-    this.color = "red";
-  }
+let paddle_2 = {
+  x: width - 75,
+  y: height/2,
+  dx: 10, 
+  dy: 10,
+  width: 25,
+  height: 80,
+  color: "red",
+};
 
-  display () {
-    fill(this.color);
-    rect (this.x, this.y, this.size, this.size);
-    ellipse(this.x, this.y, this.size - 10, this.size -10);
-
-  }
+let boundary;
 
 
-  update() {
-    if (keyIsDown(UP_ARROW)){
-      this.y -= this.dy;
-    }
-    else if (keyIsDown(DOWN_ARROW)) {
-      this.y += this.dy;
-    }
-    else if (keyIsDown(LEFT_ARROW)) {
-      this.x -= this.dx;
-    }
-    else if (keyIsDown(RIGHT_ARROW)) {
-      this.x += this.dx;
-    }
+// class AirHockeyPaddle {
+//   constructor (x,y) {
+//     this.x = x;
+//     this.y = y;
+//     this.dx = 10;
+//     this.dy = 10;
+//     this.size = 25;
+//     this.color = "red"
+//   }
+
+//   display () {
+//     fill(this.color);
+//     rect (this.x, this.y, this.size, this.size);
+//     ellipse(this.x, this.y, this.size - 10, this.size -10);
+
+//   }
+
+
+//   update() {
+//     if (keyIsDown(UP_ARROW)){
+//       this.y -= this.dy;
+//     }
+//     
 
     // if (this.y <=0 + this.size|| this.y >= height - this.size) {
     //   this.dy *= -1;
@@ -63,19 +77,48 @@ class AirHockeyPaddle {
     // }
     // if (this.x <= 0 + this.size|| this.x >= width - this.size){
     //   this.dx *= -1;
-  }
-}
+//   }
+// }
 
-let stick;
+
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
-  stick = new AirHockeyPaddle(width -100, height/2);
+  
 }
 
 function draw() {
   background(0);
   
-  stick.display();
-  stick.update();
+}
+
+function paddleMovement() {
+  if (paddle_1.x >= 0 && paddle_1.x <= width) {
+    if (paddle_1.y <= height && paddle_1.y >= 0) {
+      if (keyIsDown(87)) {
+        this.y -= this.dy;
+      }
+      else if (keyIsDown(83)) {
+        this.y += this.dy;
+      }
+      else if (keyIsDown(37)) {
+        this.x -= this.dx;
+      }
+      else if (keyIsDown(39)) {
+        this.x += this.dx;
+      }
+  }
+  if (paddle_2.x >= 0 && paddle_2.x <= width) {
+    if (paddle_2.y <= height && paddle_2.y >= 0) {
+    //move paddle 2
+    }
+  }
+}
+}
+
+
+function createBoundary() {
+  // 
+  
+  
 }
