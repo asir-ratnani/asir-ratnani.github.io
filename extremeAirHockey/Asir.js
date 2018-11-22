@@ -28,42 +28,19 @@
 
 let paddle_1;
 let paddle_2;
-
+let puck;
+let hit;
+let backgroundImage;
+let gotGoal;
+let gotGoal2;
+let goal;
+let counter =0;
+let counter2 = 0;
 let boundary;
 
-
-// class AirHockeyPaddle {
-//   constructor (x,y) {
-//     this.x = x;
-//     this.y = y;
-//     this.dx = 10;
-//     this.dy = 10;
-//     this.size = 25;
-//     this.color = "red"
-//   }
-
-//   display () {
-//     fill(this.color);
-//     rect (this.x, this.y, this.size, this.size);
-//     ellipse(this.x, this.y, this.size - 10, this.size -10);
-
-//   }
-
-
-//   update() {
-//     if (keyIsDown(UP_ARROW)){
-//       this.y -= this.dy;
-//     }
-//     
-
-    // if (this.y <=0 + this.size|| this.y >= height - this.size) {
-    //   this.dy *= -1;
-
-    // }
-    // if (this.x <= 0 + this.size|| this.x >= width - this.size){
-    //   this.dx *= -1;
-//   }
-// }
+function preload(){
+  backgroundImage = loadImage("assets/background.png");
+}
 
 
 
@@ -86,10 +63,24 @@ function setup() {
     radius1: 75,
     radius2: 30,
   };
+  puck = {
+    x : width/2,
+    y:height/2,
+    dx: random(-1, 1),
+    dy : random(-1, 1),
+    radius : 50,
+  };
+  goal = {
+    x1: width - 25,
+    x2: 0,
+    y:height/2 -25,
+    w:25,
+    h: 250,
+  };
 }
 
 function draw() {
-  background(0);
+  background(backgroundImage);
   createBoundary();
 
   drawPaddle();
@@ -97,46 +88,15 @@ function draw() {
   movePaddle_1();
   movePaddle_2();
 
+  displayPuck();
+  movePuck();
+  rightGoal();
+  leftGoal();
+
 
   
 }
 
-function paddleMovement() {
-  // if (paddle_1.x >= 0 && paddle_1.x <= width) {
-  //   if (paddle_1.y <= height && paddle_1.y >= 0) {
-  //     if (keyIsDown(87)) {
-  //       paddle_1.y -= paddle_1.dy;
-  //     }
-  //     else if (keyIsDown(83)) {
-  //       paddle_1.y += paddle_1.dy;
-  //     }
-  //     else if (keyIsDown(37)) {
-  //       paddle_1.x -= paddle_1.dx;
-  //     }
-  //     else if (keyIsDown(39)) {
-  //       paddle_1.x += paddle_1.dx;
-  //     }
-  // }
-  // else if (paddle_2.x >= 0 && paddle_2.x <= width) {
-  //   if (paddle_2.y <= height && paddle_2.y >= 0) {
-  //     if (keyIsDown(UP_ARROW)) {
-  //       paddle_2.y -= paddle_2.dy;
-  //     }
-  //     else if (keyIsDown(DOWN_ARROW)) {
-  //       paddle_2.y += paddle_2.dy;
-  //     }
-  //     else if (keyIsDown(LEFT_ARROW)) {
-  //       paddle_2.x -= paddle_2.dx;
-  //     }
-  //     else if (keyIsDown(RIGHT_ARROW)) {
-  //       paddle_2.x += paddle_2.dx;
-  //     }
-    //move paddle 2
-      
-//     }
-//   }
-// }
-}
 
 
 function movePaddle_1() {
@@ -173,17 +133,70 @@ function movePaddle_2() {
 
 function drawPaddle() {
   fill(255,0,0);
+  stroke(0);
+  strokeWeight(5)
   ellipse(paddle_1.x, paddle_1.y, paddle_1.radius1 *2, paddle_1.radius1 *2);
-  fill(255);
   ellipse(paddle_1.x, paddle_1.y, paddle_1.radius2 *2, paddle_1.radius2 *2);
-  fill(255,0,0);
   ellipse(paddle_2.x, paddle_2.y, paddle_2.radius1 *2, paddle_2.radius1 *2);
-  fill(255);
   ellipse(paddle_2.x, paddle_2.y, paddle_2.radius2 *2, paddle_2.radius2 *2);
 
 }
 
 function createBoundary() {
-  fill(0,220,0);
-  rect(width/2, 0, 25, height);
+// 
+}
+
+function displayPuck(){
+  fill(0);
+  ellipse(puck.x, puck.y, puck.radius*2, puck.radius*2);
+}
+
+function movePuck(){
+  puck.x += puck.dx;
+  puck.y += puck.dy;
+
+  //boundary
+
+  if (puck.y <= 0 + puck.radius || puck.y >= height - puck.radius){
+    puck.dy *= -1;
+  }
+  if (puck.x <= 0 + puck.radius|| puck.x >= width - puck.radius){
+    puck.dx *= -1;
+  }
+}
+
+function collideWithPaddleOne(){
+
+  hit = collideCircleCircle(paddle_1.x, paddle_1.y, paddle_1.radius*2, puck.x, puck.y, puck.radius);
+
+  if (hit){
+    puck.dx += paddle_1.dx;
+    puck.dy += paddle_1.dy;
+  }
+}
+
+function rightGoal(){
+  noStroke();
+  fill(255);
+  rect(goal.x1, goal.y, goal.w, goal.h);
+
+  gotGoal = collideRectCircle(goal.x1,  goal.y, goal.w, goal.h, puck.x, puck.y, puck.radius*2 );
+
+  if(gotGoal){
+    counter = counter +1;
+    puck.x = width/2;
+  }
+}
+
+function leftGoal(){
+  noStroke();
+  fill(255);
+  rect(goal.x2, goal.y, goal.w, goal.h);
+
+  gotGoal2 = collideRectCircle(goal.x2,  goal.y, goal.w, goal.h, puck.x, puck.y, puck.radius*2 );
+
+  if(gotGoal2){
+    counter2 = counter2 +1;
+    puck.x = width/2;
+  }
 }
