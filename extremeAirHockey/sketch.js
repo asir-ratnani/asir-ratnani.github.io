@@ -4,7 +4,7 @@
 //
 // Extra for Experts:
 // - It is not regular air hockey, it is EXTREMEEEE LASER AIR HOCKEY!
-// - Each time the bullet increases, 
+// - Each time the bullet increases,
 //
 // Both:
 // Collision detector :)
@@ -15,7 +15,7 @@
 // Make sure the paddle doesnt fly off screen
 // Add another paddle;
 // Menu
-// 
+//
 // Eimear:
 // Create Puck :)
 // Make sure the puck bounces off edges. :)
@@ -24,12 +24,13 @@
 // Find amazing, awsome, great background image.
 // Find amazing, awsome, great music
 //
-// 
+//
 
 let paddle_1;
 let paddle_2;
 let puck;
-let hit;
+let hit1;
+let hit2;
 let backgroundImage;
 let gotGoal;
 let gotGoal2;
@@ -49,8 +50,8 @@ function setup() {
   paddle_1 = {
     x: 110,
     y: height/2,
-    dx: 10, 
-    dy: 10,
+    dx: 5,
+    dy: 5,
     radius1: 75,
     radius2: 30,
   };
@@ -58,16 +59,16 @@ function setup() {
   paddle_2 = {
     x: width - 110,
     y: height/2,
-    dx: 10, 
-    dy: 10,
+    dx: 5,
+    dy: 5,
     radius1: 75,
     radius2: 30,
   };
   puck = {
     x : width/2,
     y:height/2,
-    dx: random(-1, 1),
-    dy : random(-1, 1),
+    dx: random(-3, 4),
+    dy : random(-3, 4),
     radius : 50,
   };
   goal = {
@@ -93,8 +94,11 @@ function draw() {
   rightGoal();
   leftGoal();
 
+  collideWithPaddleOne();
+  collideWithPaddleTwo();
 
-  
+
+
 }
 
 
@@ -106,7 +110,7 @@ function movePaddle_1() {
   if (keyIsDown(83) && paddle_1.y + paddle_1.radius1 <= height) {
     paddle_1.y += paddle_1.dy;
   }
-  
+
   if (keyIsDown(65) && paddle_1.x - paddle_1.radius1 >= 0) {
     paddle_1.x -= paddle_1.dx;
   }
@@ -134,7 +138,7 @@ function movePaddle_2() {
 function drawPaddle() {
   fill(255,0,0);
   stroke(0);
-  strokeWeight(5)
+  strokeWeight(5);
   ellipse(paddle_1.x, paddle_1.y, paddle_1.radius1 *2, paddle_1.radius1 *2);
   ellipse(paddle_1.x, paddle_1.y, paddle_1.radius2 *2, paddle_1.radius2 *2);
   ellipse(paddle_2.x, paddle_2.y, paddle_2.radius1 *2, paddle_2.radius1 *2);
@@ -143,7 +147,7 @@ function drawPaddle() {
 }
 
 function createBoundary() {
-// 
+//
 }
 
 function displayPuck(){
@@ -167,11 +171,22 @@ function movePuck(){
 
 function collideWithPaddleOne(){
 
-  hit = collideCircleCircle(paddle_1.x, paddle_1.y, paddle_1.radius*2, puck.x, puck.y, puck.radius);
+  hit1 = collideCircleCircle(paddle_1.x, paddle_1.y, paddle_1.radius1*2, puck.x, puck.y, puck.radius *2);
 
-  if (hit){
-    puck.dx += paddle_1.dx;
-    puck.dy += paddle_1.dy;
+  if (hit1){
+    puck.dx *= -1;
+    puck.dy *= -1;
+    // puck.y *= -1;
+  }
+}
+
+function collideWithPaddleTwo(){
+
+  hit2 = collideCircleCircle(paddle_2.x, paddle_2.y, paddle_2.radius1*2, puck.x, puck.y, puck.radius *2);
+
+  if (hit2){
+    puck.dx *= -1;
+    // puck.y *= -1;
   }
 }
 
@@ -184,7 +199,7 @@ function rightGoal(){
 
   if(gotGoal){
     counter = counter +1;
-    puck.x = width/2;
+    //puck.x = width/2;
   }
 }
 
@@ -197,6 +212,6 @@ function leftGoal(){
 
   if(gotGoal2){
     counter2 = counter2 +1;
-    puck.x = width/2;
+    //puck.x = width/2;
   }
 }
