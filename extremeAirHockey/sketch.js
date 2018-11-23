@@ -96,9 +96,6 @@ function draw() {
 
   collideWithPaddleOne();
   collideWithPaddleTwo();
-
-
-
 }
 
 
@@ -176,6 +173,10 @@ function collideWithPaddleOne(){
   if (hit1){
     puck.dx *= -1;
     puck.dy *= -1;
+    while (hit1) {
+      puck.x += puck.dx;
+      puck.y += puck.dy;
+    }
     // puck.y *= -1;
   }
 }
@@ -186,7 +187,7 @@ function collideWithPaddleTwo(){
 
   if (hit2){
     puck.dx *= -1;
-    // puck.y *= -1;
+    puck.dy *= -1;
   }
 }
 

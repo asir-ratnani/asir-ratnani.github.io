@@ -36,7 +36,8 @@ let gotGoal2;
 let goal;
 let counter =0;
 let counter2 = 0;
-let boundary;
+let distance;
+let a,b,c;
 
 function preload(){
   backgroundImage = loadImage("assets/background.png");
@@ -77,6 +78,16 @@ function setup() {
     w:25,
     h: 250,
   };
+
+  a = paddle_1.x - puck.x;
+  b = paddle_1.y - puck.y;
+  c = Math.sqrt(a^2 + b^2);
+
+  distance = Math.sqrt(
+    ((paddle_1.x - puck.x) * (paddle_1.x – puck.x))
+  + ((paddle_1.y - puck.y) * (paddle_1.y – puck.y))
+   );
+
 }
 
 function draw() {
