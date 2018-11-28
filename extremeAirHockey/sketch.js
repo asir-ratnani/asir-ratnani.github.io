@@ -65,8 +65,8 @@ function setup() {
     radius2: 30,
   };
   puck = {
-    x : width/2,
-    y:height/2,
+    x: width/2,
+    y:        height/2,
     dx: random(-3, 4),
     dy : random(-3, 4),
     radius : 50,
@@ -103,6 +103,7 @@ function draw() {
 function movePaddle_1() {
   if (keyIsDown(87) && paddle_1.y - paddle_1.radius1 >= 0 ) {
     paddle_1.y -= paddle_1.dy;
+    
   }
   if (keyIsDown(83) && paddle_1.y + paddle_1.radius1 <= height) {
     paddle_1.y += paddle_1.dy;
@@ -176,6 +177,7 @@ function collideWithPaddleOne(){
     while (hit1) {
       puck.x += puck.dx;
       puck.y += puck.dy;
+      hit1 = false;
     }
     // puck.y *= -1;
   }
@@ -215,4 +217,31 @@ function leftGoal(){
     counter2 = counter2 +1;
     //puck.x = width/2;
   }
+}
+
+function setupCollide() {
+  objects = new Group();
+
+  ball = createSprite(width / 2, height/ 2);
+  ball.addImage(loadImage("assets/puck-clipart-hockey-puck.svg"));
+
+  paddle = createSprite (400, 500);
+  paddle.addImage(loadImage("assets/paddle.png"));
+
+  paddle.setCollider('rectangle', -5,5, 200, 200);
+  ball.setCollider('circle', -5, 5, 75);
+
+  ball.setSpeed(10, 10);
+
+  paddle.scale = random(0.5, 1);
+  ball.scale = random(0.5, 1);
+
+
+  paddle.mass = paddle.scale;
+  ball.mass = ball.scale;
+
+  paddle.immovable = true;
+  
+  objects.add(paddle);
+  objects.add(ball);
 }
