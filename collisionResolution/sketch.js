@@ -12,6 +12,30 @@ let objects;
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
+  objects = new Group();
+
+  ball = createSprite(width / 2, height/ 2);
+  ball.addImage(loadImage("assets/puck-clipart-hockey-puck.svg"));
+
+  paddle = createSprite (400, 500);
+  paddle.addImage(loadImage("assets/paddle.png"));
+
+  paddle.setCollider('rectangle', -5,5, 200, 200);
+  ball.setCollider('circle', -5, 5, 75);
+
+  ball.setSpeed(10, 10);
+
+  paddle.scale = random(0.5, 1);
+  ball.scale = random(0.5, 1);
+
+
+  paddle.mass = paddle.scale;
+  ball.mass = ball.scale;
+
+  paddle.immovable = true;
+  
+  objects.add(paddle);
+  objects.add(ball);
 
   
   
