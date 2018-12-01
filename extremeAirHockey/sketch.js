@@ -45,6 +45,11 @@ let objects;
 
 function preload(){
   backgroundImage = loadImage("assets/background.png");
+  extremeBackgroundImage = loadImage("assets/extremeBackground.png");
+  regularBackgroundSong = loadSound("assets/regularBackground.mp3");
+  puckNoise = loadSound("assets/hockeyPuckSound.mp3");
+  extremeBackgroundSong = loadSound("assets/extremeBackground.mp3");
+  thunderSound = loadSound("assets/thunder.mp3");
 }
 
 
@@ -52,7 +57,7 @@ function preload(){
 function setup() {
   createCanvas(windowWidth, windowHeight);
   setupCollide();
-  
+
 //   paddle_1 = {
 //     x: 110,
 //     y: height/2,
@@ -88,7 +93,7 @@ function setup() {
 
 function draw() {
   background(backgroundImage);
-    
+
   movePaddle_1();
   movePaddle_2();
 
@@ -126,7 +131,7 @@ function movePaddle_2() {
     if (keyIsDown(40)) {
         newPaddle_2.position.y += 7;
       }
-    
+
     if (keyIsDown(37) ) {
         newPaddle_2.position.x -= 7;
       }
@@ -171,7 +176,7 @@ function setupCollide() {
 
   newPaddle_1 = createSprite (200, height /2);
   newPaddle_1.addImage(loadImage("assets/paddle.png"));
-  
+
   newPaddle_2 = createSprite (width - 200, height/2);
   newPaddle_2.addImage(loadImage("assets/paddle.png"));
 
@@ -193,7 +198,7 @@ function setupCollide() {
   newPaddle_1.immovable = true;
   newPaddle_2.immovable = true;
 
-  
+
   objects.add(newPaddle_1);
   objects.add(newPaddle_2);
   objects.add(newPuck);
@@ -206,17 +211,17 @@ function setBoundaries() {
           s.position.x = 1;
           s.velocity.x = abs(s.velocity.x);
         }
-    
+
         if(s.position.x>width) {
           s.position.x = width-1;
           s.velocity.x = -abs(s.velocity.x);
         }
-    
+
         if(s.position.y<0) {
           s.position.y = 1;
           s.velocity.y = abs(s.velocity.y);
         }
-    
+
         if(s.position.y>height) {
           s.position.y = height-1;
           s.velocity.y = -abs(s.velocity.y);
@@ -224,8 +229,12 @@ function setBoundaries() {
       }
 }
 
-function mousePressed() {
-    background(0);
-    loop();
-    // insert music
+  function mousePressed() {
+  if (background(backgroundImage)){
+    background(extremeBackgroundImage);
+  }
+  else if (background(extremeBackgroundImage)){
+  }
+  //loop();
+  // insert music
 }
