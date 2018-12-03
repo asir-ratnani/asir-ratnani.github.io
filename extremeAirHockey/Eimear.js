@@ -23,6 +23,8 @@
 // Find amazing, awsome, great background image.
 // Find amazing, awsome, great music
 
+//windowheight must be 939
+
 
 
 let paddle_1;
@@ -41,6 +43,8 @@ let boundary;
 let newPaddle_1, newPaddle_2;
 let newPuck;
 let objects;
+let backdrop;
+let backmusic;
 
 function preload(){
   backgroundImage = loadImage("assets/background.png");
@@ -56,9 +60,12 @@ function preload(){
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
-  regularBackgroundSong.loop();
+
   puckNoise.loop();
   setupCollide();
+  backdrop = backgroundImage;
+  backmusic = regularBackgroundSong;
+  backmusic.loop();
 
 
 //   paddle_1 = {
@@ -95,7 +102,7 @@ function setup() {
 }
 
 function draw() {
-  background(backgroundImage);
+  background(backdrop);
 
   movePaddle_1();
   movePaddle_2();
@@ -230,10 +237,14 @@ function setBoundaries() {
 }
 
   function mousePressed() {
-  if (background(backgroundImage)){
-    background(extremeBackgroundImage);
+  if (backdrop = backgroundImage){
+    backdrop = extremeBackgroundImage;
+    backmusic = extremeBackgroundSong;
+
   }
-  else if (background(extremeBackgroundImage)){
+  else if (backdrop = extremeBackgroundImage){
+    backdrop = backgroundImage;
+    backmusic = regularBackgroundSong;
   }
   //loop();
   // insert music
