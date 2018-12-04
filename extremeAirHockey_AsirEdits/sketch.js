@@ -1,6 +1,6 @@
 // Air Hockey
 // Asir Ratnani & Eimear Currie
-// November 16 2018
+// December 5, 2018
 //
 // Extra for Experts:
 // - It is not regular air hockey, it is EXTREMEEEE LASER AIR HOCKEY!
@@ -137,32 +137,6 @@ function movePaddle_2() {
 
 
 
-function rightGoal(){
-  noStroke();
-  fill(255);
-  rect(goal.x1, goal.y, goal.w, goal.h);
-
-  gotGoal = collideRectCircle(goal.x1,  goal.y, goal.w, goal.h, puck.x, puck.y, puck.radius*2 );
-
-  if(gotGoal){
-    counter = counter +1;
-    //puck.x = width/2;
-  }
-}
-
-function leftGoal(){
-  noStroke();
-  fill(255);
-  rect(goal.x2, goal.y, goal.w, goal.h);
-
-  gotGoal2 = collideRectCircle(goal.x2,  goal.y, goal.w, goal.h, puck.x, puck.y, puck.radius*2 );
-
-  if(gotGoal2){
-    counter2 = counter2 +1;
-    //puck.x = width/2;
-  }
-}
-
 function setupCollide() {
   objects = new Group();
 
@@ -182,8 +156,8 @@ function setupCollide() {
 
   newPuck.setSpeed(10, 10);
 
-  newPaddle_1.scale = 0.9;
-  newPaddle_2.scale = 0.9;
+  newPaddle_1.scale = 0.75;
+  newPaddle_2.scale = 0.75;
   newPuck.scale = 0.65;
 
   newPaddle_1.mass = newPaddle_1.scale;
