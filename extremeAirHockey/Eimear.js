@@ -1,6 +1,6 @@
 // Air Hockey
 // Asir Ratnani & Eimear Currie
-// November 16 2002
+// November 16 2018
 //
 // Extra for Experts:
 // - describe what you did to take this project "above and beyond"
@@ -24,7 +24,6 @@
 // Find amazing, awsome, great music
 
 //windowheight must be 939
-//see if yuo ca find our easter egg when the puck hits the ball it loops aeround it alluting nto the fACT THAT WE HAVE AN EXTREME VERSION
 
 
 
@@ -33,15 +32,13 @@ let paddle_2;
 let puck;
 let hit1;
 let hit2;
-let backgroundImage, goalNoise, extremeBackgroundImage , regularBackgroundSong, puckNoise ,extremeBackgroundSong,  thunderSound ;
+let backgroundImage;
 let gotGoal;
 let gotGoal2;
 let goal;
 let counter =0;
 let counter2 = 0;
 let boundary;
-let state = 1;
-
 
 let newPaddle_1, newPaddle_2;
 let newPuck;
@@ -62,13 +59,46 @@ function preload(){
 
 
 function setup() {
-  createCanvas(windowWidth, 939);
+  createCanvas(windowWidth, windowHeight);
 
   puckNoise.loop();
   setupCollide();
   backdrop = backgroundImage;
   backmusic = regularBackgroundSong;
-  backmusic.play();
+  backmusic.loop();
+
+
+//   paddle_1 = {
+//     x: 110,
+//     y: height/2,
+//     dx: 5,
+//     dy: 5,
+//     radius1: 75,
+//     radius2: 30,
+//   };
+
+//   paddle_2 = {
+//     x: width - 110,
+//     y: height/2,
+//     dx: 5,
+//     dy: 5,
+//     radius1: 75,
+//     radius2: 30,
+//   };
+//   puck = {
+//     x: width/2,
+//     y:        height/2,
+//     dx: random(-3, 4),
+//     dy : random(-3, 4),
+//     radius : 50,
+//   };
+  goal = {
+    x1: width - 25,
+    x2: 0,
+    y:height/2 -25,
+    w:25,
+    h: 250,
+  };
 }
 
 function draw() {
@@ -207,29 +237,22 @@ function setBoundaries() {
 }
 
   function mousePressed() {
-  if (backdrop === backgroundImage){
-    backmusic.stop();
+  if (backdrop = backgroundImage){
     backdrop = extremeBackgroundImage;
     backmusic = extremeBackgroundSong;
-    backmusic.loop();
-    thunderSound.loop();
-
-
 
   }
-  else if (backdrop === extremeBackgroundImage){ //music switches
-    backmusic.stop();
+  else if (backdrop = extremeBackgroundImage){
     backdrop = backgroundImage;
     backmusic = regularBackgroundSong;
-    backmusic.loop();
-
   }
-
- }
+  //loop();
+  // insert music
+}
 
 function keepScore(){
   textSize(100);
   fill(255, 0, 0);
   text(counter, width/2- 150, 125);
-  text(counter2, width/2 + 150, 125);
+  text(counter2, width/2 + 150, 125)
 }

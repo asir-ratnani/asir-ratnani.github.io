@@ -3,7 +3,7 @@
 // December 5, 2018
 //
 // Extra for Experts:
-// - It is not regular air hockey, it is EXTREMEEEE LASER AIR HOCKEY!
+// - It is not regular air hockey, it is EXTREMEEEE AIR HOCKEY!
 // - Each time the bullet increases,
 //
 // Both:
@@ -24,26 +24,18 @@
 // Find amazing, awsome, great background image.
 // Find amazing, awsome, great music
 //
-//
+//windowheight must be 939
+//Our project includes an easter egg: spoiler warning ahead !!!! when the puck loops around the paddle thats the easter egg!! but what is it for? thats for you to figure out ;)
 
-let paddle_1;
-let paddle_2;
-let puck;
-let hit1;
-let hit2;
-let backgroundImage, goalNoise, extremeBackgroundImage, regularBackgroundSong, puckNoise, extremeBackgroundSong, thunderSound ;
-let gotGoal;
-let gotGoal2;
-let goal;
+let backgroundImage, extremeBackgroundImage;
+let goalNoise, regularBackgroundSong, puckNoise, extremeBackgroundSong, thunderSound ;
 let counter = 0;
 let counter2 = 0;
-let state = 1;
-
 let newPaddle_1, newPaddle_2;
 let newPuck;
 let objects;
 let backdrop;
-let backmusic;
+let backmusic, soundEffect;
 
 
 function preload(){
@@ -56,20 +48,19 @@ function preload(){
   goalNoise = loadSound("assets/goalNoise.mp3");
 }
 
-
-
 function setup() {
-  puckNoise.loop();
   createCanvas(windowWidth, windowHeight);
   setupCollide();
   backdrop = backgroundImage;
+  soundEffect = puckNoise;
   backmusic = regularBackgroundSong;
   backmusic.play();
+  soundEffect.play();
 }
 
 function draw() {
   background(backdrop);
-    
+
   movePaddle_1();
   movePaddle_2();
 
@@ -82,42 +73,38 @@ function draw() {
   leftGoal();
   rightGoal();
   keepScore();
-
-
 }
 
-
-
 function movePaddle_1() {
-    if (keyIsDown(87)) {
-        newPaddle_1.position.y -= 8;
-        }
-        if (keyIsDown(83)) {
-        newPaddle_1.position.y += 8;
-        }
+  if (keyIsDown(87)) {
+    newPaddle_1.position.y -= 8;
+  }
+  if (keyIsDown(83)) {
+    newPaddle_1.position.y += 8;
+  }
 
-        if (keyIsDown(65) ) {
-        newPaddle_1.position.x -= 8;
-        }
-        if (keyIsDown(68)) {
-        newPaddle_1.position.x += 8;
-        }
-    }
+  if (keyIsDown(65) ) {
+    newPaddle_1.position.x -= 8;
+  }
+  if (keyIsDown(68)) {
+    newPaddle_1.position.x += 8;
+  }
+}
 function movePaddle_2() {
-    if (keyIsDown(38)) {
-        newPaddle_2.position.y -= 8;
-      }
-    if (keyIsDown(40)) {
-        newPaddle_2.position.y += 8;
-      }
-    
-    if (keyIsDown(37) ) {
-        newPaddle_2.position.x -= 7;
-      }
-    if (keyIsDown(39)) {
-        newPaddle_2.position.x += 7;
-      }
-    }
+  if (keyIsDown(38)) {
+    newPaddle_2.position.y -= 8;
+  }
+  if (keyIsDown(40)) {
+    newPaddle_2.position.y += 8;
+  }
+
+  if (keyIsDown(37) ) {
+    newPaddle_2.position.x -= 7;
+  }
+  if (keyIsDown(39)) {
+    newPaddle_2.position.x += 7;
+  }
+}
 
 function rightGoal(){
   if (newPuck.position.x + 67.5 > width && newPuck.position.y >= 334.5 && newPuck.position.y <=604.5){ //67.5 is paddle radius, 334.5 is point right above goal and 604.5 is point right below goal
@@ -145,7 +132,7 @@ function setupCollide() {
 
   newPaddle_1 = createSprite (200, height /2);
   newPaddle_1.addImage(loadImage("assets/paddle.png"));
-  
+
   newPaddle_2 = createSprite (width - 200, height/2);
   newPaddle_2.addImage(loadImage("assets/paddle.png"));
 
@@ -167,7 +154,7 @@ function setupCollide() {
   newPaddle_1.immovable = true;
   newPaddle_2.immovable = true;
 
-  
+
   objects.add(newPaddle_1);
   objects.add(newPaddle_2);
   objects.add(newPuck);
@@ -196,52 +183,45 @@ function setBoundaries() {
       if(s.position.x < width/2) {
         s.position.x = (width/2) + 1;
         s.velocity.x = -abs(s.velocity.x);
+      }
+    }
+
+    if(s.position.y<0) {
+      s.position.y = 1;
+      s.velocity.y = abs(s.velocity.y);
+    }
+
+    if(s.position.y>height) {
+      s.position.y = height-1;
+      s.velocity.y = -abs(s.velocity.y);
     }
   }
-  
-      if(s.position.y<0) {
-        s.position.y = 1;
-        s.velocity.y = abs(s.velocity.y);
-      }
-  
-      if(s.position.y>height) {
-        s.position.y = height-1;
-        s.velocity.y = -abs(s.velocity.y);
-      }
-    }
 }
 
 function mousePressed() {
   if (backdrop === backgroundImage){
     backmusic.stop();
+    soundEffect.stop();
     backdrop = extremeBackgroundImage;
     backmusic = extremeBackgroundSong;
+    soundEffect = thunderSound;
     backmusic.loop();
-    thunderSound.loop();
-
-
-
+    soundEffect.loop();
   }
   else if (backdrop === extremeBackgroundImage){ //music switches
     backmusic.stop();
+    soundEffect.stop();
     backdrop = backgroundImage;
     backmusic = regularBackgroundSong;
+    soundEffect = puckNoise;
+    soundEffect.loop();
     backmusic.loop();
-
   }
-
- }
+}
 
 function keepScore(){
   textSize(100);
   fill(255, 0, 0);
-  text(counter, width/2- 150, 125);
-  text(counter2, width/2 + 150, 125);
+  text(counter2, width/2- 150, 125);
+  text(counter, width/2 + 150, 125);
 }
-
-
-// function mousePressed() {
-//     background(0);
-//     loop();
-//     // insert music
-// }
