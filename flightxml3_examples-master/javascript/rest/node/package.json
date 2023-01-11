@@ -10,6 +10,6 @@
   "author": "Jonathan Cone <jonathan.cone@flightaware.com>",
   "license": "MIT",
   "dependencies": {
-    "node-rest-client": "^3.1.0"
+    "node-rest-client": "^3.1.1"
   }
 }
